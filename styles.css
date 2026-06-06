@@ -64,8 +64,8 @@ img {
    Logo Image - Tamaño armónico
    ============================================ */
 .logo-img {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
