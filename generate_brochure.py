@@ -4,308 +4,302 @@ from reportlab.lib.colors import HexColor, white, black
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle,
-    PageBreak, HRFlowable, Flowable
+    PageBreak, HRFlowable, Flowable, KeepTogether
 )
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_JUSTIFY, TA_RIGHT
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.graphics.shapes import Drawing, Rect, Circle, Line, String
+from reportlab.graphics.shapes import Drawing, Rect, Circle, Line, String, Wedge
 from reportlab.graphics import renderPDF
-import os, math
+import os
 
-# ─── Colores corporativos ───
-PRIMARY = HexColor("#8b5cf6")
-PRIMARY_DARK = HexColor("#7c3aed")
-PRIMARY_LIGHT = HexColor("#a78bfa")
-BG_DARK = HexColor("#0a0a12")
-BG_CARD = HexColor("#111122")
-BG_CARD2 = HexColor("#15152a")
-TEXT_MAIN = HexColor("#e2e8f0")
-TEXT_SEC = HexColor("#94a3b8")
-TEXT_MUTED = HexColor("#64748b")
-BORDER = HexColor("#1e1e3a")
-GREEN = HexColor("#22c55e")
-YELLOW = HexColor("#eab308")
-RED = HexColor("#ef4444")
-GRADIENT_TOP = HexColor("#0d0d1a")
-GRADIENT_BOT = HexColor("#0a0a12")
+# ─── Colores ───
+PURPLE = "#8b5cf6"
+PURPLE_DARK = "#7c3aed"
+PURPLE_LIGHT = "#a78bfa"
+PINK = "#ec4899"
+CYAN = "#06b6d4"
+GREEN = "#22c55e"
+YELLOW = "#eab308"
+ORANGE = "#f97316"
+RED = "#ef4444"
+BG_DARK = "#0a0a12"
+BG_CARD = "#111122"
+BG_CARD2 = "#15152a"
+TEXT_MAIN = "#e2e8f0"
+TEXT_SEC = "#94a3b8"
+TEXT_MUTED = "#64748b"
+BORDER = "#1e1e3a"
+WHITE = "#ffffff"
 
 WIDTH, HEIGHT = A4
 
-# ─── Estilos ───
-styles = getSampleStyleSheet()
-
-title_style = ParagraphStyle(
-    "BrochureTitle", parent=styles["Title"],
-    fontSize=28, leading=34, textColor=white,
-    fontName="Helvetica-Bold", alignment=TA_CENTER,
-    spaceAfter=4
-)
-
-subtitle_style = ParagraphStyle(
-    "BrochureSubtitle", parent=styles["Normal"],
-    fontSize=13, leading=18, textColor=TEXT_SEC,
-    fontName="Helvetica", alignment=TA_CENTER,
-    spaceAfter=16
-)
-
-heading_style = ParagraphStyle(
-    "BrochureHeading", parent=styles["Heading2"],
-    fontSize=18, leading=22, textColor=PRIMARY_LIGHT,
-    fontName="Helvetica-Bold", spaceBefore=12, spaceAfter=8,
-    alignment=TA_LEFT
-)
-
-heading2_style = ParagraphStyle(
-    "BrochureHeading2", parent=styles["Heading2"],
-    fontSize=14, leading=18, textColor=white,
-    fontName="Helvetica-Bold", spaceBefore=10, spaceAfter=6,
-    alignment=TA_LEFT
-)
-
-body_style = ParagraphStyle(
-    "BrochureBody", parent=styles["Normal"],
-    fontSize=9.5, leading=14, textColor=TEXT_SEC,
-    fontName="Helvetica", alignment=TA_JUSTIFY,
-    spaceAfter=6
-)
-
-body_small = ParagraphStyle(
-    "BodySmall", parent=body_style,
-    fontSize=8.5, leading=12, textColor=TEXT_SEC
-)
-
-bullet_style = ParagraphStyle(
-    "BrochureBullet", parent=body_style,
-    fontSize=9, leading=13, textColor=TEXT_SEC,
-    leftIndent=14, bulletIndent=0,
-    spaceAfter=3
-)
-
-feature_title = ParagraphStyle(
-    "FeatureTitle", parent=styles["Normal"],
-    fontSize=11, leading=14, textColor=white,
-    fontName="Helvetica-Bold", spaceAfter=2
-)
-
-footer_style = ParagraphStyle(
-    "Footer", parent=styles["Normal"],
-    fontSize=7, leading=9, textColor=TEXT_MUTED,
-    fontName="Helvetica", alignment=TA_CENTER
-)
-
-cta_style = ParagraphStyle(
-    "CTA", parent=body_style,
-    fontSize=11, leading=15, textColor=white,
-    fontName="Helvetica-Bold", alignment=TA_CENTER
-)
-
-# ─── Decoraciones ───
-class GradientRect(Flowable):
-    """Rectángulo con gradiente vertical"""
-    def __init__(self, width, height, color1, color2):
+# ─── Flowables decorativos ───
+class GradientBar(Flowable):
+    """Barra de gradiente horizontal"""
+    def __init__(self, width, height=3, colors=[PURPLE, PINK]):
         Flowable.__init__(self)
         self.width = width
         self.height = height
-        self.color1 = color1
-        self.color2 = color2
+        self.colors = colors
 
     def draw(self):
         d = Drawing(self.width, self.height)
-        steps = 20
-        for i in range(steps):
-            y = self.height * i / steps
-            h = self.height / steps + 1
-            r, g, b = self._lerp_color(self.color1, self.color2, i/steps)
-            d.add(Rect(0, y, self.width, h, fillColor=HexColor(f"#{r:02x}{g:02x}{b:02x}"), strokeColor=None))
-        renderPDF.draw(d, self.canv, 0, 0)
-
-    def _lerp_color(self, c1, c2, t):
-        r = int(c1.red * 255 * (1-t) + c2.red * 255 * t)
-        g = int(c1.green * 255 * (1-t) + c2.green * 255 * t)
-        b = int(c1.blue * 255 * (1-t) + c2.blue * 255 * t)
-        return r, g, b
-
-class AccentLine(Flowable):
-    """Línea decorativa con gradiente"""
-    def __init__(self, width, height=2):
-        Flowable.__init__(self)
-        self.width = width
-        self.height = height
-
-    def draw(self):
-        d = Drawing(self.width, self.height)
-        steps = 30
+        steps = 40
         seg_w = self.width / steps
+        n = len(self.colors) - 1
         for i in range(steps):
             t = i / steps
-            r = int(139 * (1-t) + 99 * t)
-            g = int(92 * (1-t) + 102 * t)
-            b = int(246 * (1-t) + 241 * t)
+            idx = min(int(t * n), n - 1)
+            local_t = (t * n) - idx
+            c1 = self.colors[idx]
+            c2 = self.colors[min(idx + 1, n - 1)]
+            r1, g1, b1 = int(c1[1:3], 16), int(c1[3:5], 16), int(c1[5:7], 16)
+            r2, g2, b2 = int(c2[1:3], 16), int(c2[3:5], 16), int(c2[5:7], 16)
+            r = int(r1 * (1-local_t) + r2 * local_t)
+            g = int(g1 * (1-local_t) + g2 * local_t)
+            b = int(b1 * (1-local_t) + b2 * local_t)
             d.add(Rect(i*seg_w, 0, seg_w+1, self.height,
                        fillColor=HexColor(f"#{r:02x}{g:02x}{b:02x}"), strokeColor=None))
         renderPDF.draw(d, self.canv, 0, 0)
 
+class MetricCircle(Flowable):
+    """Círculo con métrica"""
+    def __init__(self, size, number, label, color=PURPLE):
+        Flowable.__init__(self)
+        self.size = size
+        self.number = number
+        self.label = label
+        self.color = color
+
+    def draw(self):
+        d = Drawing(self.size, self.size + 20)
+        cx, cy = self.size/2, self.size/2 + 10
+        # Círculo exterior
+        d.add(Circle(cx, cy, self.size/2 - 2,
+                     fillColor=HexColor(BG_CARD2),
+                     strokeColor=HexColor(self.color),
+                     strokeWidth=2))
+        # Número
+        from reportlab.graphics.charts.textlabels import Label
+        num_label = Label()
+        num_label.setOrigin(cx, cy + 4)
+        num_label.setText(self.number)
+        num_label.fontName = 'Helvetica-Bold'
+        num_label.fontSize = self.size * 0.28
+        num_label.fillColor = HexColor(self.color)
+        num_label.textAnchor = 'middle'
+        d.add(num_label)
+        # Label debajo
+        txt_label = Label()
+        txt_label.setOrigin(cx, cy - self.size/2 + 2)
+        txt_label.setText(self.label)
+        txt_label.fontName = 'Helvetica'
+        txt_label.fontSize = 7
+        txt_label.fillColor = HexColor(TEXT_SEC)
+        txt_label.textAnchor = 'middle'
+        d.add(txt_label)
+        renderPDF.draw(d, self.canv, 0, 0)
+
+class IconBox(Flowable):
+    """Caja con icono y texto"""
+    def __init__(self, width, height, icon, title, desc, color=PURPLE):
+        Flowable.__init__(self)
+        self.width = width
+        self.height = height
+        self.icon = icon
+        self.title = title
+        self.desc = desc
+        self.color = color
+
+    def draw(self):
+        d = Drawing(self.width, self.height)
+        # Fondo
+        d.add(Rect(0, 0, self.width, self.height,
+                   fillColor=HexColor(BG_CARD2),
+                   strokeColor=HexColor(BORDER),
+                   strokeWidth=0.5,
+                   rx=6, ry=6))
+        # Círculo icono
+        d.add(Circle(18, self.height - 18, 10,
+                     fillColor=HexColor(f"{self.color}20"),
+                     strokeColor=HexColor(self.color),
+                     strokeWidth=1))
+        # Icono (texto)
+        icon_label = self._make_label(self.icon, 18, self.height - 18, 9, WHITE)
+        d.add(icon_label)
+        # Título
+        title_label = self._make_label(self.title, 36, self.height - 14, 8, WHITE, 'Helvetica-Bold')
+        d.add(title_label)
+        # Descripción
+        desc_label = self._make_label(self.desc, 10, self.height - 36, 6.5, TEXT_SEC)
+        d.add(desc_label)
+        renderPDF.draw(d, self.canv, 0, 0)
+
+    def _make_label(self, text, x, y, size, color, font='Helvetica'):
+        from reportlab.graphics.charts.textlabels import Label
+        l = Label()
+        l.setOrigin(x, y)
+        l.setText(text)
+        l.fontName = font
+        l.fontSize = size
+        l.fillColor = HexColor(color)
+        return l
+
 def draw_bg(canvas, doc):
-    """Fondo oscuro con detalles"""
     canvas.saveState()
-    # Fondo principal
-    canvas.setFillColor(BG_DARK)
+    canvas.setFillColor(HexColor(BG_DARK))
     canvas.rect(0, 0, WIDTH, HEIGHT, fill=1, stroke=0)
-    # Línea superior sutil
-    canvas.setStrokeColor(HexColor("#8b5cf640"))
+    # Barra superior
+    canvas.setStrokeColor(HexColor(f"{PURPLE}40"))
     canvas.setLineWidth(0.5)
     canvas.line(0, HEIGHT - 1, WIDTH, HEIGHT - 1)
-    # Esquinas decorativas
-    canvas.setStrokeColor(HexColor("#8b5cf620"))
-    canvas.setLineWidth(0.3)
-    # Esquina superior derecha
-    canvas.line(WIDTH - 30, HEIGHT - 10, WIDTH - 10, HEIGHT - 10)
-    canvas.line(WIDTH - 10, HEIGHT - 30, WIDTH - 10, HEIGHT - 10)
-    # Esquina inferior izquierda
-    canvas.line(10, 10, 30, 10)
-    canvas.line(10, 10, 10, 30)
     canvas.restoreState()
 
 def draw_page_number(canvas, doc):
     canvas.saveState()
     canvas.setFont("Helvetica", 7)
-    canvas.setFillColor(TEXT_MUTED)
+    canvas.setFillColor(HexColor(TEXT_MUTED))
     canvas.drawCentredString(WIDTH / 2, 12, f"GuLIN AI — Brochure Corporativo — Pág. {doc.page}")
     canvas.restoreState()
 
 def spacer(h=6):
     return Spacer(1, h)
 
-def hr():
-    return HRFlowable(width="100%", thickness=0.5, color=BORDER, spaceAfter=10, spaceBefore=10)
+def gradient_hr():
+    return GradientBar(WIDTH - 40*mm, 2, [PURPLE, PINK, CYAN])
 
-def accent_hr():
-    return AccentLine(WIDTH - 40*mm, 2)
-
-def bullet(text):
-    return Paragraph(f"<bullet>&bull;</bullet> {text}", bullet_style)
-
-def card_table(title, items, cols=2):
-    """Crea una tabla tipo card con título y items"""
-    data = []
-    row = []
-    for i, (t, d) in enumerate(items):
-        cell = [
-            [Paragraph(f"<b>{t}</b>", ParagraphStyle("ct", parent=body_style, fontSize=10, textColor=white))],
-            [Paragraph(d, ParagraphStyle("cd", parent=body_style, fontSize=8, leading=11, textColor=TEXT_SEC))]
-        ]
-        inner = Table(cell, colWidths=[(WIDTH - 40*mm) / cols - 8])
-        inner.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, -1), BG_CARD2),
-            ('BOX', (0, 0), (-1, -1), 0.5, BORDER),
-            ('TOPPADDING', (0, 0), (-1, -1), 6),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-            ('LEFTPADDING', (0, 0), (-1, -1), 8),
-            ('RIGHTPADDING', (0, 0), (-1, -1), 8),
-            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ]))
-        row.append(inner)
-        if len(row) == cols or i == len(items) - 1:
-            while len(row) < cols:
-                row.append(Paragraph("", body_style))
-            data.append(row)
-            row = []
-    t = Table(data, colWidths=[(WIDTH - 40*mm) / cols] * cols)
-    t.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+def make_table(data, col_widths, style_list=None):
+    t = Table(data, colWidths=col_widths)
+    base_style = [
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
         ('LEFTPADDING', (0, 0), (-1, -1), 4),
         ('RIGHTPADDING', (0, 0), (-1, -1), 4),
         ('TOPPADDING', (0, 0), (-1, -1), 4),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
-    ]))
+    ]
+    if style_list:
+        base_style.extend(style_list)
+    t.setStyle(TableStyle(base_style))
     return t
 
-# ─── Construcción del PDF ───
+# ─── Estilos de texto ───
+styles = getSampleStyleSheet()
+
+s_title = ParagraphStyle("T1", parent=styles["Title"], fontSize=30, leading=36,
+                         textColor=HexColor(WHITE), fontName="Helvetica-Bold", alignment=TA_CENTER, spaceAfter=4)
+s_subtitle = ParagraphStyle("T2", parent=styles["Normal"], fontSize=14, leading=19,
+                            textColor=HexColor(TEXT_SEC), fontName="Helvetica", alignment=TA_CENTER, spaceAfter=12)
+s_heading = ParagraphStyle("H1", parent=styles["Heading2"], fontSize=20, leading=24,
+                           textColor=HexColor(PURPLE_LIGHT), fontName="Helvetica-Bold", spaceBefore=10, spaceAfter=8)
+s_subheading = ParagraphStyle("H2", parent=styles["Heading2"], fontSize=14, leading=18,
+                              textColor=HexColor(WHITE), fontName="Helvetica-Bold", spaceBefore=8, spaceAfter=6)
+s_body = ParagraphStyle("B1", parent=styles["Normal"], fontSize=9.5, leading=14,
+                        textColor=HexColor(TEXT_SEC), fontName="Helvetica", alignment=TA_JUSTIFY, spaceAfter=6)
+s_body_small = ParagraphStyle("B2", parent=s_body, fontSize=8.5, leading=12)
+s_bullet = ParagraphStyle("BL", parent=s_body, fontSize=9, leading=13,
+                          leftIndent=14, bulletIndent=0, spaceAfter=3)
+s_footer = ParagraphStyle("F1", parent=styles["Normal"], fontSize=7, leading=9,
+                          textColor=HexColor(TEXT_MUTED), fontName="Helvetica", alignment=TA_CENTER)
+s_cta = ParagraphStyle("CTA", parent=s_body, fontSize=12, leading=16,
+                       textColor=HexColor(WHITE), fontName="Helvetica-Bold", alignment=TA_CENTER)
+
+def bullet(text):
+    return Paragraph(f"<bullet>&bull;</bullet> {text}", s_bullet)
+
+# ─── Construcción ───
 output_path = os.path.join(os.path.dirname(__file__), "brochure_gulin.pdf")
 logo_path = os.path.join(os.path.dirname(__file__), "GULIN_LOGO_3.jpeg")
 
-doc = SimpleDocTemplate(
-    output_path,
-    pagesize=A4,
-    leftMargin=20*mm,
-    rightMargin=20*mm,
-    topMargin=16*mm,
-    bottomMargin=20*mm,
+doc = SimpleDocTemplate(output_path, pagesize=A4,
+    leftMargin=20*mm, rightMargin=20*mm,
+    topMargin=16*mm, bottomMargin=20*mm,
     title="Brochure GuLIN AI - Agente Inteligente de TI",
-    author="GuLIN AI"
-)
+    author="GuLIN AI")
 
 story = []
 
 # ============================================================
 # PÁGINA 1 - PORTADA
 # ============================================================
-story.append(spacer(50))
+story.append(spacer(40))
 
 # Logo
 if os.path.exists(logo_path):
-    im = Image(logo_path, width=60*mm, height=60*mm)
+    im = Image(logo_path, width=65*mm, height=65*mm)
     story.append(im)
 
-story.append(spacer(8))
-story.append(Paragraph("GuLIN <font color='#8b5cf6'>IA</font>", title_style))
-story.append(Paragraph("Agente Inteligente Autónomo para TI Empresarial", subtitle_style))
 story.append(spacer(6))
-story.append(accent_hr())
-story.append(spacer(8))
+story.append(Paragraph("GuLIN <font color='#8b5cf6'>IA</font>", s_title))
+story.append(Paragraph("Agente Inteligente Autónomo para TI Empresarial", s_subtitle))
+story.append(spacer(4))
+story.append(gradient_hr())
+story.append(spacer(6))
 
 story.append(Paragraph(
-    "Detecta, diagnostica y mitiga incidentes de infraestructura<br/>antes de que afecten a tus clientes.",
-    ParagraphStyle("PortadaDesc", parent=body_style, fontSize=12, leading=17,
-                   textColor=TEXT_SEC, alignment=TA_CENTER)
+    "Detecta, diagnostica y mitiga incidentes de infraestructura<br/>"
+    "<b>antes de que afecten a tus clientes</b>",
+    ParagraphStyle("PD", parent=s_body, fontSize=12, leading=17,
+                   textColor=HexColor(TEXT_SEC), alignment=TA_CENTER)
 ))
-story.append(spacer(25))
+story.append(spacer(20))
 
-# ─── Highlights mejorados ───
-highlight_items = [
-    ("-40%", "Reducción MTTR", "en tiempo de resolución de incidentes"),
-    ("3x", "Velocidad Entrega", "mayor velocidad de deploy"),
-    ("$50K+", "Ahorro Anual", "en optimización de costos cloud"),
+# ─── Métricas circulares ───
+metric_row = []
+metrics = [
+    ("-40%", "MTTR", PURPLE),
+    ("3x", "Velocidad", PINK),
+    ("$50K+", "Ahorro/año", CYAN),
+    ("99.9%", "SLA", GREEN),
 ]
+for num, label, color in metrics:
+    metric_row.append(MetricCircle(50, num, label, color))
 
-h_data = []
-for num, label, desc in highlight_items:
-    h_data.append([
-        Paragraph(f"<font color='#8b5cf6' size='22'><b>{num}</b></font>",
-                  ParagraphStyle("hn", parent=body_style, alignment=TA_CENTER)),
-        Paragraph(f"<b>{label}</b>",
-                  ParagraphStyle("hl", parent=body_style, fontSize=10, textColor=white, alignment=TA_CENTER)),
-        Paragraph(desc,
-                  ParagraphStyle("hd", parent=body_style, fontSize=7.5, alignment=TA_CENTER)),
-    ])
-
-ht = Table(h_data, colWidths=[(WIDTH - 40*mm)/3]*3)
-ht.setStyle(TableStyle([
-    ('BACKGROUND', (0, 0), (-1, -1), BG_CARD),
-    ('BOX', (0, 0), (-1, -1), 0.5, BORDER),
-    ('INNERGRID', (0, 0), (-1, -1), 0.5, BORDER),
+metric_table = Table([metric_row], colWidths=[(WIDTH-40*mm)/4]*4)
+metric_table.setStyle(TableStyle([
+    ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
     ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-    ('TOPPADDING', (0, 0), (-1, -1), 10),
-    ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
-    ('LEFTPADDING', (0, 0), (-1, -1), 6),
-    ('RIGHTPADDING', (0, 0), (-1, -1), 6),
-    ('ROUNDEDCORNERS', [6, 6, 6, 6]),
-]))
-story.append(ht)
-
-story.append(spacer(30))
-
-# ─── Info de contacto en portada ───
-contact_data = [[
-    Paragraph("contacto@gulin-ai.com", ParagraphStyle("c1", parent=body_style, fontSize=8, textColor=TEXT_MUTED, alignment=TA_CENTER)),
-]]
-ct = Table(contact_data, colWidths=[WIDTH - 40*mm])
-ct.setStyle(TableStyle([
-    ('BACKGROUND', (0, 0), (-1, -1), BG_CARD),
-    ('BOX', (0, 0), (-1, -1), 0.5, BORDER),
     ('TOPPADDING', (0, 0), (-1, -1), 6),
     ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+]))
+story.append(metric_table)
+
+story.append(spacer(20))
+
+# ─── Caja de valor ───
+value_data = [[
+    Paragraph(
+        "<b>⚡ Automatización Inteligente 24/7</b><br/>"
+        "Correlaciona logs, métricas y trazas en tiempo real.<br/>"
+        "<b>🛡️ Seguridad Enterprise</b> — SOC2, ISO 27001<br/>"
+        "<b>☁️ Multicloud</b> — AWS, Azure, GCP, Jira, ServiceNow",
+        ParagraphStyle("VB", parent=s_body, fontSize=9.5, leading=15, textColor=HexColor(TEXT_SEC))
+    )
+]]
+vt = Table(value_data, colWidths=[WIDTH - 40*mm])
+vt.setStyle(TableStyle([
+    ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD2)),
+    ('BOX', (0, 0), (-1, -1), 0.5, HexColor(f"{PURPLE}40")),
+    ('TOPPADDING', (0, 0), (-1, -1), 10),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+    ('LEFTPADDING', (0, 0), (-1, -1), 14),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 14),
+    ('ROUNDEDCORNERS', [8, 8, 8, 8]),
+]))
+story.append(vt)
+
+story.append(spacer(25))
+
+# Contacto
+contact = [[
+    Paragraph("contacto@gulin-ai.com  |  www.gulin-ai.com",
+              ParagraphStyle("CT", parent=s_body, fontSize=8, textColor=HexColor(TEXT_MUTED), alignment=TA_CENTER))
+]]
+ct = Table(contact, colWidths=[WIDTH - 40*mm])
+ct.setStyle(TableStyle([
+    ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD)),
+    ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+    ('TOPPADDING', (0, 0), (-1, -1), 6),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+    ('ROUNDEDCORNERS', [6, 6, 6, 6]),
 ]))
 story.append(ct)
 
@@ -314,189 +308,301 @@ story.append(PageBreak())
 # ============================================================
 # PÁGINA 2 - PROBLEMA + SOLUCIÓN + CARACTERÍSTICAS
 # ============================================================
-story.append(Paragraph("El Problema", heading_style))
+story.append(Paragraph("⚡ El Problema que Resolvemos", s_heading))
 story.append(Paragraph(
     "Las operaciones tradicionales de TI están al límite. Los ingenieros pasan el <b>60% de su tiempo</b> "
     "respondiendo a falsas alertas y apagando fuegos manualmente en lugar de construir valor para el producto.",
-    body_style
+    s_body
 ))
 story.append(spacer(4))
 
-# Cards de problemas
-problem_items = [
-    ("🔔 Fatiga extrema por Alertas",
-     "Miles de notificaciones confusas al día. Imposible identificar qué es crítico antes de una caída."),
-    ("⏱️ Resolución Lenta (MTTR Elevado)",
-     "Horas de análisis de logs, llamadas de emergencia a las 3 a.m. y costosos tiempos muertos."),
-    ("☁️ Desperdicio y Costes Cloud",
-     "Recursos sobre-dimensionados y licencias SaaS inactivas por falta de previsión inteligente."),
+# Problemas en cards visuales
+problems = [
+    ("🔔", "Fatiga por Alertas", "Miles de notificaciones confusas al día. Imposible identificar qué es crítico."),
+    ("⏱️", "MTTR Elevado", "Horas de análisis de logs y llamadas de emergencia a las 3 a.m."),
+    ("☁️", "Costos Cloud", "Recursos sobre-dimensionados y licencias SaaS inactivas."),
 ]
-story.append(card_table("Problemas", problem_items, cols=1))
 
-story.append(spacer(8))
-story.append(accent_hr())
-story.append(spacer(4))
+prob_data = []
+for icon, title, desc in problems:
+    prob_data.append([
+        Paragraph(f"<font size='14'>{icon}</font>", ParagraphStyle("PI", parent=s_body, alignment=TA_CENTER)),
+        Paragraph(f"<b>{title}</b>", ParagraphStyle("PT", parent=s_body, fontSize=10, textColor=HexColor(WHITE))),
+        Paragraph(desc, ParagraphStyle("PD2", parent=s_body, fontSize=8.5, leading=12, textColor=HexColor(TEXT_SEC))),
+    ])
 
-story.append(Paragraph("La Solución", heading_style))
+pt = Table(prob_data, colWidths=[20, (WIDTH-40*mm)*0.3, (WIDTH-40*mm)*0.55])
+pt.setStyle(TableStyle([
+    ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD2)),
+    ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+    ('INNERGRID', (0, 0), (-1, -1), 0.3, HexColor(BORDER)),
+    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+    ('TOPPADDING', (0, 0), (-1, -1), 8),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+    ('LEFTPADDING', (0, 0), (-1, -1), 8),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+    ('ROUNDEDCORNERS', [6, 6, 6, 6]),
+]))
+story.append(pt)
+
+story.append(spacer(10))
+story.append(gradient_hr())
+story.append(spacer(6))
+
+# ─── Solución ───
+story.append(Paragraph("💡 Nuestra Solución", s_heading))
 story.append(Paragraph(
     "GuLIN es el <b>primer agente inteligente autónomo de TI</b> para empresas. Se integra de forma segura en tu stack "
     "tecnológico para diagnosticar anomalías, predecir problemas de infraestructura y mitigar incidentes "
     "de forma totalmente autónoma, <b>24/7</b>.",
-    body_style
+    s_body
 ))
-story.append(spacer(4))
-
-# Caja de solución destacada
-sol_data = [[
-    Paragraph(
-        "<b>⚡ Automatización Inteligente:</b> Correlaciona logs, métricas y trazas en tiempo real.<br/>"
-        "<b>🛡️ Seguridad Enterprise:</b> Aislamiento absoluto. SOC2 e ISO 27001.<br/>"
-        "<b>☁️ Multicloud:</b> AWS, Azure, GCP, Jira, ServiceNow.",
-        ParagraphStyle("sol_text", parent=body_style, fontSize=9, leading=14, textColor=TEXT_SEC)
-    )
-]]
-st = Table(sol_data, colWidths=[WIDTH - 40*mm])
-st.setStyle(TableStyle([
-    ('BACKGROUND', (0, 0), (-1, -1), BG_CARD2),
-    ('BOX', (0, 0), (-1, -1), 0.5, HexColor("#8b5cf640")),
-    ('TOPPADDING', (0, 0), (-1, -1), 10),
-    ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
-    ('LEFTPADDING', (0, 0), (-1, -1), 12),
-    ('RIGHTPADDING', (0, 0), (-1, -1), 12),
-    ('ROUNDEDCORNERS', [6, 6, 6, 6]),
-]))
-story.append(st)
-
-story.append(spacer(10))
-story.append(accent_hr())
-story.append(spacer(4))
+story.append(spacer(6))
 
 # ─── Características Clave ───
-story.append(Paragraph("Características Clave", heading_style))
+story.append(Paragraph("🚀 Características Clave", s_heading))
 
 features = [
-    ("🤖 Diagnóstico Autónomo", "Correlaciona logs, métricas y trazas en tiempo real para identificar causa raíz en segundos."),
-    ("🛡️ Seguridad Enterprise", "Aislamiento absoluto de contextos. Cumplimiento SOC2 e ISO 27001. Tus datos nunca se usan para entrenar modelos públicos."),
-    ("☁️ Integración Multicloud", "Conexión fluida con AWS, Azure, GCP, Jira, ServiceNow y herramientas de observabilidad estándar."),
-    ("📊 Optimización de Costos", "Identifica recursos infrautilizados y sugiere acciones para reducir hasta un 30% la factura cloud."),
-    ("🔔 Alertas Inteligentes", "Filtra el ruido y prioriza incidentes críticos con análisis contextual basado en impacto al negocio."),
-    ("⚡ Automatización Segura", "Desde modo sugerencia hasta ejecución autónoma en ventanas de tiempo definidas con permisos granulares."),
+    ("🤖", "Diagnóstico Autónomo", "Correlaciona logs, métricas y trazas en tiempo real. Identifica causa raíz en segundos."),
+    ("🛡️", "Seguridad Enterprise", "Aislamiento absoluto. SOC2, ISO 27001. Tus datos nunca se usan para entrenar modelos públicos."),
+    ("☁️", "Multicloud", "AWS, Azure, GCP, Jira, ServiceNow. Conexión mediante APIs seguras OAuth 2.0."),
+    ("📊", "Optimización Costos", "Identifica recursos infrautilizados. Reduce hasta un 30% la factura cloud."),
+    ("🔔", "Alertas Inteligentes", "Filtra ruido y prioriza incidentes críticos con análisis contextual de impacto al negocio."),
+    ("⚡", "Automatización Segura", "Desde modo sugerencia hasta ejecución autónoma con permisos granulares."),
 ]
-story.append(card_table("Características", features, cols=2))
+
+feat_data = []
+for icon, title, desc in features:
+    feat_data.append([
+        Paragraph(f"<font size='12'>{icon}</font>", ParagraphStyle("FI", parent=s_body, alignment=TA_CENTER)),
+        Paragraph(f"<b>{title}</b>", ParagraphStyle("FT", parent=s_body, fontSize=10, textColor=HexColor(WHITE))),
+        Paragraph(desc, ParagraphStyle("FD", parent=s_body, fontSize=8, leading=11, textColor=HexColor(TEXT_SEC))),
+    ])
+
+# Grid 2 columnas
+feat_table_data = []
+row = []
+for i, f in enumerate(feat_data):
+    inner = Table([f], colWidths=[18, (WIDTH-40*mm)/2 - 30, (WIDTH-40*mm)/2 - 18])
+    inner.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD2)),
+        ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('LEFTPADDING', (0, 0), (-1, -1), 6),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+        ('ROUNDEDCORNERS', [6, 6, 6, 6]),
+    ]))
+    row.append(inner)
+    if len(row) == 2 or i == len(features) - 1:
+        while len(row) < 2:
+            row.append(Paragraph("", s_body))
+        feat_table_data.append(row)
+        row = []
+
+ft = Table(feat_table_data, colWidths=[(WIDTH-40*mm)/2]*2)
+ft.setStyle(TableStyle([
+    ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+    ('LEFTPADDING', (0, 0), (-1, -1), 3),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 3),
+    ('TOPPADDING', (0, 0), (-1, -1), 3),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+]))
+story.append(ft)
 
 story.append(spacer(8))
-story.append(accent_hr())
+story.append(gradient_hr())
 story.append(spacer(4))
 
 # ─── Casos por Rol ───
-story.append(Paragraph("Casos de Uso por Rol", heading_style))
+story.append(Paragraph("👥 Casos de Uso por Rol", s_heading))
 
 roles = [
-    ("👨‍💻 Desarrolladores & DevOps", "Generación de pipelines CI/CD seguros, refactorización automatizada, soporte para despliegues complejos sin intervención manual."),
-    ("🗄️ DBAs & Data Engineers", "Optimización de consultas lentas, sugerencias de índices, monitoreo de cuellos de botella en bases de datos."),
-    ("🏗️ Arquitectos de Soluciones", "Validación de arquitectura contra principios de diseño, detección de deuda técnica, generación de diagramas."),
-    ("🖥️ SysAdmins e Infraestructura", "Monitoreo proactivo de servidores, rotación automatizada de certificados, gestión de parches de seguridad."),
-    ("📈 Monitoreo & AIOps", "Correlación inteligente de alertas, reducción de falsos positivos, dashboards unificados de salud del sistema."),
-    ("🏷️ Gestión de Activos (SAM)", "Auditorías automatizadas de licencias, detección de software no autorizado, optimización de costos SaaS."),
+    ("👨‍💻", "DevOps", "Pipelines CI/CD seguros, refactorización automatizada, despliegues sin intervención manual."),
+    ("🗄️", "DBAs", "Optimización de queries lentas, sugerencias de índices, monitoreo de cuellos de botella."),
+    ("🏗️", "Arquitectos", "Validación de arquitectura, detección de deuda técnica, generación de diagramas."),
+    ("🖥️", "SysAdmins", "Monitoreo proactivo, rotación de certificados, gestión de parches de seguridad."),
+    ("📈", "AIOps", "Correlación de alertas, reducción de falsos positivos, dashboards unificados."),
+    ("🏷️", "SAM", "Auditorías de licencias, detección de software no autorizado, optimización SaaS."),
 ]
-story.append(card_table("Roles", roles, cols=2))
+
+roles_data = []
+for icon, title, desc in roles:
+    roles_data.append([
+        Paragraph(f"<font size='10'>{icon}</font>", ParagraphStyle("RI", parent=s_body, alignment=TA_CENTER)),
+        Paragraph(f"<b>{title}</b>", ParagraphStyle("RT", parent=s_body, fontSize=9, textColor=HexColor(WHITE))),
+        Paragraph(desc, ParagraphStyle("RD", parent=s_body, fontSize=7.5, leading=10, textColor=HexColor(TEXT_SEC))),
+    ])
+
+roles_table_data = []
+row = []
+for i, r in enumerate(roles_data):
+    inner = Table([r], colWidths=[16, (WIDTH-40*mm)/2 - 28, (WIDTH-40*mm)/2 - 16])
+    inner.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD2)),
+        ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+        ('ROUNDEDCORNERS', [4, 4, 4, 4]),
+    ]))
+    row.append(inner)
+    if len(row) == 2 or i == len(roles) - 1:
+        while len(row) < 2:
+            row.append(Paragraph("", s_body))
+        roles_table_data.append(row)
+        row = []
+
+rt = Table(roles_table_data, colWidths=[(WIDTH-40*mm)/2]*2)
+rt.setStyle(TableStyle([
+    ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+    ('LEFTPADDING', (0, 0), (-1, -1), 3),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 3),
+    ('TOPPADDING', (0, 0), (-1, -1), 3),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+]))
+story.append(rt)
 
 story.append(PageBreak())
 
 # ============================================================
 # PÁGINA 3 - IMPACTO + SEGURIDAD + CTA
 # ============================================================
-story.append(Paragraph("Impacto de Negocio", heading_style))
+story.append(Paragraph("📈 Impacto de Negocio", s_heading))
 story.append(spacer(4))
 
-# Tabla de impacto mejorada
+# Tabla de impacto
 impact_data = [
-    [Paragraph("<b>Métrica</b>", ParagraphStyle("ih", parent=body_style, fontSize=9, textColor=PRIMARY_LIGHT)),
-     Paragraph("<b>Resultado</b>", ParagraphStyle("ih2", parent=body_style, fontSize=9, textColor=PRIMARY_LIGHT)),
-     Paragraph("<b>Descripción</b>", ParagraphStyle("ih3", parent=body_style, fontSize=9, textColor=PRIMARY_LIGHT))],
-    [Paragraph("MTTR (Tiempo de Resolución)", body_small),
-     Paragraph("<font color='#22c55e'><b>-40%</b></font>", body_small),
-     Paragraph("Reducción del tiempo medio de resolución de incidentes críticos", body_small)],
-    [Paragraph("Velocidad de Entrega", body_small),
-     Paragraph("<font color='#22c55e'><b>3x</b></font>", body_small),
-     Paragraph("Aceleración en despliegues y resolución de impedimentos", body_small)],
-    [Paragraph("Costos Cloud", body_small),
-     Paragraph("<font color='#22c55e'><b>-30%</b></font>", body_small),
-     Paragraph("Optimización de recursos y licencias SaaS", body_small)],
-    [Paragraph("Disponibilidad (SLA)", body_small),
-     Paragraph("<font color='#22c55e'><b>99.9%</b></font>", body_small),
-     Paragraph("Disponibilidad garantizada con respuesta autónoma inmediata", body_small)],
-    [Paragraph("Productividad Equipo", body_small),
-     Paragraph("<font color='#22c55e'><b>+60%</b></font>", body_small),
-     Paragraph("Más tiempo para construir valor en lugar de apagar fuegos", body_small)],
+    [Paragraph("<b>Métrica</b>", ParagraphStyle("IH", parent=s_body, fontSize=9, textColor=HexColor(PURPLE_LIGHT))),
+     Paragraph("<b>Resultado</b>", ParagraphStyle("IH2", parent=s_body, fontSize=9, textColor=HexColor(PURPLE_LIGHT))),
+     Paragraph("<b>Descripción</b>", ParagraphStyle("IH3", parent=s_body, fontSize=9, textColor=HexColor(PURPLE_LIGHT)))],
+    [Paragraph("MTTR", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>-40%</b></font>", s_body_small),
+     Paragraph("Reducción del tiempo medio de resolución de incidentes críticos", s_body_small)],
+    [Paragraph("Velocidad Entrega", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>3x</b></font>", s_body_small),
+     Paragraph("Aceleración en despliegues y resolución de impedimentos", s_body_small)],
+    [Paragraph("Costos Cloud", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>-30%</b></font>", s_body_small),
+     Paragraph("Optimización de recursos y licencias SaaS", s_body_small)],
+    [Paragraph("Disponibilidad SLA", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>99.9%</b></font>", s_body_small),
+     Paragraph("Disponibilidad garantizada con respuesta autónoma inmediata", s_body_small)],
+    [Paragraph("Productividad", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>+60%</b></font>", s_body_small),
+     Paragraph("Más tiempo para construir valor en lugar de apagar fuegos", s_body_small)],
+    [Paragraph("ROI Inversión", s_body_small),
+     Paragraph(f"<font color='{GREEN}'><b>5x</b></font>", s_body_small),
+     Paragraph("Retorno sobre la inversión en el primer año de implementación", s_body_small)],
 ]
 
-t2 = Table(impact_data, colWidths=[doc.width*0.28, doc.width*0.17, doc.width*0.55])
-t2.setStyle(TableStyle([
+it = Table(impact_data, colWidths=[doc.width*0.25, doc.width*0.17, doc.width*0.58])
+it.setStyle(TableStyle([
     ('BACKGROUND', (0, 0), (-1, 0), HexColor("#1a1a30")),
-    ('BACKGROUND', (0, 1), (-1, -1), BG_CARD),
-    ('BOX', (0, 0), (-1, -1), 0.5, BORDER),
-    ('INNERGRID', (0, 0), (-1, -1), 0.5, BORDER),
+    ('BACKGROUND', (0, 1), (-1, -1), HexColor(BG_CARD)),
+    ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+    ('INNERGRID', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
     ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-    ('LEFTPADDING', (0, 0), (-1, -1), 6),
-    ('RIGHTPADDING', (0, 0), (-1, -1), 6),
     ('TOPPADDING', (0, 0), (-1, -1), 5),
     ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+    ('LEFTPADDING', (0, 0), (-1, -1), 6),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 6),
     ('ROUNDEDCORNERS', [6, 6, 6, 6]),
 ]))
-story.append(t2)
+story.append(it)
 
-story.append(spacer(16))
-story.append(accent_hr())
-story.append(spacer(8))
+story.append(spacer(14))
+story.append(gradient_hr())
+story.append(spacer(6))
 
 # ─── Seguridad ───
-story.append(Paragraph("Seguridad y Cumplimiento", heading_style))
+story.append(Paragraph("🔒 Seguridad y Cumplimiento", s_heading))
 
 sec_items = [
-    ("🔐 Autonomía con Control Humano", "Define permisos específicos de acción para la IA. Desde sugerencias hasta ejecución automatizada en entornos no críticos."),
-    ("🛡️ Seguridad Nivel Enterprise", "Aislamiento absoluto de contextos. Cumplimiento SOC2 e ISO 27001. Tus datos nunca se usan para entrenar modelos públicos."),
-    ("🔗 Integración Multicloud", "AWS, Azure, GCP, Jira, ServiceNow y más. Conexión mediante APIs seguras con autenticación OAuth 2.0 y tokens efímeros."),
-    ("🔒 Encriptación Total", "Todo el tráfico encriptado TLS 1.3. Puedes revocar el acceso en cualquier momento desde nuestro panel de control."),
+    ("🔐", "Control Humano", "Define permisos específicos. Desde sugerencias hasta ejecución automatizada."),
+    ("🛡️", "Nivel Enterprise", "Aislamiento absoluto. SOC2, ISO 27001. Datos nunca usados para entrenar modelos."),
+    ("🔗", "Integración Segura", "APIs OAuth 2.0 con tokens efímeros. AWS, Azure, GCP, Jira, ServiceNow."),
+    ("🔒", "Encriptación Total", "Tráfico TLS 1.3. Revocación de acceso en cualquier momento."),
 ]
-story.append(card_table("Seguridad", sec_items, cols=2))
 
-story.append(spacer(20))
-story.append(accent_hr())
-story.append(spacer(10))
+sec_data = []
+for icon, title, desc in sec_items:
+    sec_data.append([
+        Paragraph(f"<font size='10'>{icon}</font>", ParagraphStyle("SI", parent=s_body, alignment=TA_CENTER)),
+        Paragraph(f"<b>{title}</b>", ParagraphStyle("ST", parent=s_body, fontSize=9, textColor=HexColor(WHITE))),
+        Paragraph(desc, ParagraphStyle("SD", parent=s_body, fontSize=7.5, leading=10, textColor=HexColor(TEXT_SEC))),
+    ])
+
+sec_table_data = []
+row = []
+for i, s in enumerate(sec_data):
+    inner = Table([s], colWidths=[16, (WIDTH-40*mm)/2 - 28, (WIDTH-40*mm)/2 - 16])
+    inner.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), HexColor(BG_CARD2)),
+        ('BOX', (0, 0), (-1, -1), 0.5, HexColor(BORDER)),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+        ('ROUNDEDCORNERS', [4, 4, 4, 4]),
+    ]))
+    row.append(inner)
+    if len(row) == 2 or i == len(sec_items) - 1:
+        while len(row) < 2:
+            row.append(Paragraph("", s_body))
+        sec_table_data.append(row)
+        row = []
+
+st2 = Table(sec_table_data, colWidths=[(WIDTH-40*mm)/2]*2)
+st2.setStyle(TableStyle([
+    ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+    ('LEFTPADDING', (0, 0), (-1, -1), 3),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 3),
+    ('TOPPADDING', (0, 0), (-1, -1), 3),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+]))
+story.append(st2)
+
+story.append(spacer(18))
+story.append(gradient_hr())
+story.append(spacer(8))
 
 # ─── CTA Final ───
 story.append(Paragraph(
     "Lleva la eficiencia de tu equipo de TI al siguiente nivel",
-    ParagraphStyle("cta_title", parent=title_style, fontSize=20, leading=24)
+    ParagraphStyle("CTA_TITLE", parent=s_title, fontSize=20, leading=24)
 ))
 story.append(spacer(4))
 story.append(Paragraph(
     "Elimina la fatiga de alertas, asegura el tiempo de actividad y optimiza tus costos en nube "
     "con la primera solución TI autónoma.",
-    subtitle_style
+    s_subtitle
 ))
-story.append(spacer(12))
+story.append(spacer(10))
 
 # Botón CTA
-cta_data = [[Paragraph("<b>SOLICITAR DEMO →</b>", cta_style)]]
-cta_table = Table(cta_data, colWidths=[180])
+cta_data = [[Paragraph("<b>SOLICITAR DEMO →</b>", s_cta)]]
+cta_table = Table(cta_data, colWidths=[200])
 cta_table.setStyle(TableStyle([
-    ('BACKGROUND', (0, 0), (-1, -1), PRIMARY),
-    ('BOX', (0, 0), (-1, -1), 0, PRIMARY),
+    ('BACKGROUND', (0, 0), (-1, -1), HexColor(PURPLE)),
+    ('BOX', (0, 0), (-1, -1), 0, HexColor(PURPLE)),
     ('TOPPADDING', (0, 0), (-1, -1), 12),
     ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
-    ('LEFTPADDING', (0, 0), (-1, -1), 24),
-    ('RIGHTPADDING', (0, 0), (-1, -1), 24),
+    ('LEFTPADDING', (0, 0), (-1, -1), 28),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 28),
     ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
     ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
     ('ROUNDEDCORNERS', [8, 8, 8, 8]),
 ]))
 story.append(cta_table)
 
-story.append(spacer(12))
-story.append(Paragraph("contacto@gulin-ai.com  |  www.gulin-ai.com", footer_style))
-story.append(Paragraph("© 2026 GuLIN AI. Todos los derechos reservados.", footer_style))
+story.append(spacer(10))
+story.append(Paragraph("contacto@gulin-ai.com  |  www.gulin-ai.com", s_footer))
+story.append(Paragraph("© 2026 GuLIN AI. Todos los derechos reservados.", s_footer))
 
 # ─── Generar PDF ───
 doc.build(story, onFirstPage=draw_bg, onLaterPages=lambda c, d: (draw_bg(c, d), draw_page_number(c, d)))
