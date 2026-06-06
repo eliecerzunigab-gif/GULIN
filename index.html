@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuLIN AI - Agente Inteligente Autónomo para TI Empresarial</title>
+    <meta name="description" content="GuLIN es el primer agente inteligente autónomo de TI para empresas. Detecta, diagnostica y mitiga incidentes de infraestructura antes de que afecten a tus clientes.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="GULIN_LOGO_3.jpeg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="GULIN_LOGO_3.jpeg" alt="GuLIN AI Logo" class="logo-img">
+                <span class="logo-text">ulin <span class="logo-accent">AI</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#problema" class="nav-link">El Problema</a>
+                <a href="#roles" class="nav-link">Casos por Rol</a>
+                <a href="#roi" class="nav-link">Calcular ROI</a>
+                <a href="#seguridad" class="nav-link">Seguridad</a>
+                <a href="#faq" class="nav-link">Preguntas</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openModal()">Probar Demo</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>El primer agente inteligente autónomo de TI para empresas</span>
+                </div>
+                <h1 class="hero-title">
+                    Detén las caídas de producción <span class="gradient-text">antes de que afecten a tus clientes</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Gulin se integra de forma segura en tu stack tecnológico para diagnosticar anomalías, 
+                    predecir problemas de infraestructura y mitigar incidentes de forma totalmente autónoma.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="openModal()">
+                        Solicitar Demo Personalizada
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-ghost btn-lg" onclick="document.getElementById('roles').scrollIntoView({behavior:'smooth'})">
+                        Ver Casos de Uso
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="terminal-title">gulin-agent ~ /core/engine</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">[Gulin-AI]</span> Escaneando incidentes de infraestructura...
+                        </div>
+                        <div class="terminal-line indent">
+                            <span class="arrow">></span> Correlacionando logs de transacciones de API y métricas de CPU...
+                        </div>
+                        <div class="terminal-line alert">
+                            <span class="arrow">></span> <span class="alert-text">ALERTA:</span> Latencia crítica detectada en el clúster DB-Cluster-01. Query bloqueada en la tabla 'users'.
+                        </div>
+                        <div class="terminal-line success">
+                            <span class="arrow">></span> [Mitigación] Plan de mitigación autónoma activado de forma segura.
+                        </div>
+                        <div class="terminal-line indent">
+                            <span class="arrow">></span> Creando índice sugerido para optimizar consultas... <span class="success-text">(Exitoso)</span>
+                        </div>
+                        <div class="terminal-line indent">
+                            <span class="arrow">></span> Liberando hilos de conexión de base de datos... <span class="success-text">(Exitoso)</span>
+                        </div>
+                        <div class="terminal-line result">
+                            <span class="arrow">></span> Monitorización de latencias normalizada de <span class="danger">4.8s</span> a <span class="success-text">8ms</span>.
+                        </div>
+                        <div class="terminal-line final">
+                            ✓ Rendimiento y estabilidad del servicio recuperados al <span class="highlight">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="trusted">
+        <div class="trusted-container">
+            <p class="trusted-label">Diseñado para equipos de ingeniería en empresas innovadoras</p>
+            <div class="trusted-logos">
+                <span class="trusted-logo">CLOUD_FORGE</span>
+                <span class="trusted-logo">DATASYNC</span>
+                <span class="trusted-logo">DEVOPS_FLOW</span>
+                <span class="trusted-logo">SAAS_ARCH</span>
+                <span class="trusted-logo">INTEGRA_TECH</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema" class="problem">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">La Realidad Operativa</span>
+                <h2 class="section-title">Las operaciones tradicionales de TI están <span class="gradient-text">al límite</span></h2>
+                <p class="section-desc">
+                    Los ingenieros pasan el 60% de su tiempo respondiendo a falsas alertas y apagando fuegos manualmente 
+                    en lugar de construir valor para el producto.
+                </p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon" style="--icon-bg: rgba(239, 68, 68, 0.1); --icon-color: #ef4444">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Fatiga extrema por Alertas</h3>
+                    <p>Demasiados sistemas enviando miles de notificaciones confusas al día. Es imposible identificar qué es crítico y qué es ruido antes de que ocurra una caída.</p>
+                    <span class="problem-effect">Efecto: Pérdida de foco y errores humanos</span>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="--icon-bg: rgba(245, 158, 11, 0.1); --icon-color: #f59e0b">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Resolución Lenta (MTTR Elevado)</h3>
+                    <p>Diagnosticar qué falló en una arquitectura de microservicios compleja requiere horas de análisis de logs, llamadas de emergencia a las 3 a.m. y costosos tiempos muertos.</p>
+                    <span class="problem-effect">Efecto: SLA comprometido y frustración de clientes</span>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="--icon-bg: rgba(139, 92, 246, 0.1); --icon-color: #8b5cf6">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Desperdicio y Costes Cloud Fuera de Control</h3>
+                    <p>Recursos sobre-dimensionados y licencias SaaS inactivas innecesarias para evitar cuellos de botella por falta de previsión inteligente.</p>
+                    <span class="problem-effect">Efecto: Presupuesto de TI ineficiente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section id="roles" class="roles">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Personalizado para tu Equipo</span>
+                <h2 class="section-title">Gulin empodera a cada <span class="gradient-text">especialista de TI</span></h2>
+                <p class="section-desc">
+                    Selecciona tu rol operativo para descubrir cómo Gulin actúa como un compañero autónomo experto las 24 horas del día.
+                </p>
+            </div>
+            <div class="roles-tabs">
+                <button class="role-tab active" data-role="devops">
+                    <i class="fas fa-code"></i>
+                    Desarrolladores & DevOps
+                </button>
+                <button class="role-tab" data-role="dba">
+                    <i class="fas fa-database"></i>
+                    DBAs & Data Engineers
+                </button>
+                <button class="role-tab" data-role="architect">
+                    <i class="fas fa-sitemap"></i>
+                    Arquitectos de Soluciones
+                </button>
+                <button class="role-tab" data-role="sysadmin">
+                    <i class="fas fa-server"></i>
+                    SysAdmins e Infraestructura
+                </button>
+                <button class="role-tab" data-role="monitoring">
+                    <i class="fas fa-chart-bar"></i>
+                    Monitoreo & AIOps
+                </button>
+                <button class="role-tab" data-role="sam">
+                    <i class="fas fa-tags"></i>
+                    Gestión de Activos (SAM)
+                </button>
+            </div>
+            <div class="role-content active" id="role-devops">
+                <div class="role-info">
+                    <h3>Desarrolladores & DevOps</h3>
+                    <p class="role-desc">Potencia tus capacidades con un copiloto inteligente</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Generación de pipelines CI/CD seguros</li>
+                        <li><i class="fas fa-check"></i> Refactorización automatizada en base a políticas internas</li>
+                        <li><i class="fas fa-check"></i> Soporte para despliegues complejos sin intervención manual</li>
+                    </ul>
+                    <span class="role-impact">Impacto directo: Despliegues 3x más rápidos</span>
+                </div>
+                <div class="role-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots"><span></span><span></span><span></span></div>
+                        <span class="terminal-title">Terminal Gulin AI</span>
+                    </div>
+                    <div class="terminal-body small">
+                        <div class="terminal-line"><span class="prompt">role-agent.sh</span></div>
+                        <div class="terminal-line"><span class="highlight">gulin</span> devops create-pipeline --env=prod</div>
+                        <div class="terminal-line indent">✔ Analizando arquitectura de microservicios...</div>
+                        <div class="terminal-line indent">✔ Generando YAML para GitHub Actions con escaneo SAST integrado...</div>
+                        <div class="terminal-line indent success">✔ Pipeline configurado y asegurado con éxito. Ejecución iniciada.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section id="roi" class="roi">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Calculadora de ROI</span>
+                <h2 class="section-title">Calcula cuánto puedes <span class="gradient-text">ahorrar con Gulin AI</span></h2>
+                <p class="section-desc">
+                    Ingresa los parámetros aproximados de tu organización y descubre el impacto directo en tiempo y dinero.
+                </p>
+            </div>
+            <div class="roi-calculator">
+                <div class="roi-inputs">
+                    <div class="roi-field">
+                        <label>Tamaño del Equipo de TI/Ingeniería:</label>
+                        <div class="roi-slider">
+                            <input type="range" id="teamSize" min="5" max="100" value="15">
+                            <span class="roi-value" id="teamSizeValue">15 ingenieros</span>
+                        </div>
+                    </div>
+                    <div class="roi-field">
+                        <label>Incidentes críticos al mes (P1/P2/P3):</label>
+                        <div class="roi-slider">
+                            <input type="range" id="incidents" min="5" max="100" value="10">
+                            <span class="roi-value" id="incidentsValue">10 incidentes</span>
+                        </div>
+                    </div>
+                    <div class="roi-field">
+                        <label>Costo estimado promedio (USD / Hora de ingeniería):</label>
+                        <div class="roi-slider">
+                            <input type="range" id="hourlyRate" min="20" max="200" value="50">
+                            <span class="roi-value" id="hourlyRateValue">USD $50/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="roi-result">
+                    <h3>Ahorro Anual Estimado</h3>
+                    <div class="roi-metrics">
+                        <div class="roi-metric">
+                            <span class="roi-number" id="hoursSaved">192</span>
+                            <span class="roi-label">Horas</span>
+                            <p>Tiempo de ingeniería recuperado</p>
+                        </div>
+                        <div class="roi-metric">
+                            <span class="roi-number" id="moneySaved">$9,600</span>
+                            <span class="roi-label">USD</span>
+                            <p>Reducción de costos de operación</p>
+                        </div>
+                    </div>
+                    <p class="roi-note">*Cálculo conservador asumiendo una reducción del 40% en el MTTR e identificaciones de problemas proactivas sin llamadas de guardia imprevistas.</p>
+                    <button class="btn btn-primary btn-full" onclick="openModal()">
+                        Comenzar Prueba de Concepto (PoC)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security -->
+    <section id="seguridad" class="security">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Infraestructura Blindada</span>
+                <h2 class="section-title">Diseñado para cumplir con rigurosos <span class="gradient-text">estándares corporativos</span></h2>
+                <p class="section-desc">
+                    Combinamos agentes inteligentes autónomos con estrictas políticas de privacidad y control absoluto de los datos.
+                </p>
+            </div>
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-sliders"></i>
+                    </div>
+                    <h3>Autonomía con Control Humano</h3>
+                    <p>Define permisos específicos de acción para la IA. Desde sugerencias de código listas para revisión (Guardrails), hasta ejecuciones automatizadas en clústeres no críticos.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3>Seguridad de Nivel Enterprise</h3>
+                    <p>Aislamiento absoluto de contextos. Tu código base, credenciales e infraestructura permanecen totalmente privados y encriptados bajo cumplimiento de SOC2 e ISO 27001.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Integración Multicloud Completa</h3>
+                    <p>Integración fluida con AWS, Azure, GCP, sistemas de ticketing corporativos (Jira, ServiceNow) y herramientas de observabilidad estándar del sector sin alterar tu flujo actual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Impacto de Negocio</span>
+                <h2 class="section-title">Estadísticas reales de <span class="gradient-text">nuestros clientes</span></h2>
+                <p class="section-desc">
+                    Las métricas consolidadas tras evaluar más de 100 implementaciones en producción demuestran ganancias operativas inmediatas.
+                </p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">-40%</div>
+                    <div class="impact-label">reducción del MTTR</div>
+                    <p>El diagnóstico automatizado de causa raíz reduce a minutos el tiempo dedicado a incidentes críticos de producción.</p>
+                </div>
+                <div class="impact-card featured">
+                    <div class="impact-number">3x</div>
+                    <div class="impact-label">mayor velocidad de entrega</div>
+                    <p>Aceleración en el despliegue de pipelines y resolución autónoma de impedimentos en entornos DevOps.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">100%</div>
+                    <div class="impact-label">control y cumplimiento SAM</div>
+                    <p>Auditorías automatizadas continuas sobre costos e inventarios que aseguran el fin del desperdicio en licencias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Preguntas Frecuentes</span>
+                <h2 class="section-title">Resolvemos tus <span class="gradient-text">dudas principales</span></h2>
+                <p class="section-desc">
+                    Todo lo que necesitas saber antes de implementar el agente de inteligencia de Gulin en tus sistemas.
+                </p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cómo accede Gulin a nuestra infraestructura de forma segura?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Gulin se conecta mediante APIs seguras con autenticación OAuth 2.0 y tokens efímeros. No almacenamos credenciales permanentemente. Todo el tráfico está encriptado TLS 1.3 y puedes revocar el acceso en cualquier momento desde nuestro panel de control.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Gulin ejecuta cambios en entornos de producción de manera autónoma?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, pero solo si configuras permisos explícitos para ello. Puedes elegir entre modo "Sugerencia" (recomienda acciones que requieren aprobación humana) o modo "Autónomo" (ejecuta cambios en ventanas de tiempo definidas y en entornos no críticos).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Nuestros datos o código fuente se utilizan para entrenar modelos públicos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. Absolutamente no. Tu código, datos de infraestructura y métricas operativas permanecen completamente aislados. No utilizamos datos de clientes para entrenar modelos públicos. Operamos bajo estrictos acuerdos de confidencialidad y cumplimos con SOC2 e ISO 27001.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cuánto tiempo toma la integración inicial con nuestro stack actual?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La integración inicial típicamente toma entre 2 y 4 horas. Conectamos Gulin a tus fuentes de datos existentes (APIs, webhooks, bases de datos de monitoreo) sin necesidad de modificar tu infraestructura actual. Ofrecemos soporte dedicado durante todo el proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Lleva la eficiencia de tu equipo de TI <span class="gradient-text">al siguiente nivel</span></h2>
+                <p>Elimina la fatiga de alertas, asegura el tiempo de actividad y optimiza tus costos en nube con la primera solución TI autónoma.</p>
+                <div class="cta-form">
+                    <input type="email" placeholder="Ingresa tu correo corporativo" class="cta-input">
+                    <button class="btn btn-primary btn-lg" onclick="openModal()">Probar Gulin</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo-wrap">
+                        <img src="GULIN_LOGO_3.jpeg" alt="GuLIN AI Logo" class="logo-img logo-img-footer">
+                        <span class="logo-text">ulin <span class="logo-accent">AI</span></span>
+                    </div>
+                    <p>Gulin AI Agent - Inteligencia Autónoma para TI Empresarial</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Producto</h4>
+                        <a href="#">Soporte Enterprise</a>
+                        <a href="#">Seguridad (GDPR/SOC2)</a>
+                        <a href="#">Términos de Servicio</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Recursos</h4>
+                        <a href="#">Documentación API</a>
+                        <a href="#">Blog Técnico</a>
+                        <a href="#">Estado del Sistema</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Compañía</h4>
+                        <a href="#">Sobre Gulin</a>
+                        <a href="#">Contacto</a>
+                        <a href="#">Privacidad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Gulin. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <div class="modal-header">
+                <img src="GULIN_LOGO_3.jpeg" alt="GuLIN AI Logo" class="logo-img logo-img-modal">
+                <h2>Solicitar Demo</h2>
+                <p>Descubre cómo Gulin puede transformar tu operación de TI</p>
+            </div>
+            <div class="modal-body">
+                <form id="authForm" onsubmit="handleAuth(event)">
+                    <div class="form-group">
+                        <label>Nombre completo</label>
+                        <input type="text" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo corporativo</label>
+                        <input type="email" placeholder="tu@empresa.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input type="text" placeholder="Nombre de tu empresa" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Solicitar Demo
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
