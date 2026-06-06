@@ -30,6 +30,119 @@
     --terminal-yellow: #eab308;
     --max-width: 1200px;
     --nav-height: 60px;
+    --navbar-bg: transparent;
+    --navbar-border: transparent;
+    --hero-bg: transparent;
+}
+
+/* ============================================
+   Modo Claro
+   ============================================ */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f8f9fc;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f0f2f8;
+        --text: #1a1a2e;
+        --text-secondary: #4a4a6a;
+        --text-muted: #8a8aaa;
+        --border: rgba(139, 92, 246, 0.15);
+        --border-hover: rgba(139, 92, 246, 0.35);
+        --primary-bg: rgba(139, 92, 246, 0.08);
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.06);
+        --terminal-bg: #f0f2f8;
+        --navbar-bg: rgba(255, 255, 255, 0.95);
+        --navbar-border: rgba(139, 92, 246, 0.1);
+        --hero-bg: #f8f9fc;
+    }
+
+    .navbar.scrolled {
+        background: var(--navbar-bg);
+        border-bottom: 1px solid var(--navbar-border);
+    }
+
+    .nav-links {
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .nav-actions.active {
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .terminal-card {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .roi-calculator {
+        background: var(--bg-card);
+    }
+
+    .cta-content {
+        background: var(--bg-card);
+    }
+
+    .modal {
+        background: var(--bg-card);
+    }
+
+    .menu-toggle span {
+        background: var(--text);
+    }
+}
+
+/* ============================================
+   Toggle manual de tema (clase .light-mode)
+   ============================================ */
+.light-mode {
+    --bg: #f8f9fc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f2f8;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #8a8aaa;
+    --border: rgba(139, 92, 246, 0.15);
+    --border-hover: rgba(139, 92, 246, 0.35);
+    --primary-bg: rgba(139, 92, 246, 0.08);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.06);
+    --terminal-bg: #f0f2f8;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-border: rgba(139, 92, 246, 0.1);
+    --hero-bg: #f8f9fc;
+}
+
+.light-mode .navbar.scrolled {
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--navbar-border);
+}
+
+.light-mode .nav-links {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.light-mode .nav-actions.active {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.light-mode .terminal-card {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.light-mode .roi-calculator {
+    background: var(--bg-card);
+}
+
+.light-mode .cta-content {
+    background: var(--bg-card);
+}
+
+.light-mode .modal {
+    background: var(--bg-card);
+}
+
+.light-mode .menu-toggle span {
+    background: var(--text);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

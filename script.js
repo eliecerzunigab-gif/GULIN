@@ -286,6 +286,44 @@ document.querySelectorAll('.problem-card, .role-content, .security-card, .impact
     observer.observe(el);
 });
 
+// ============================================
+// Theme Toggle (Oscuro / Claro)
+// ============================================
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.querySelector('#themeToggle i');
+    const isLight = body.classList.toggle('light-mode');
+    
+    if (isLight) {
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('gulin-theme', 'light');
+    } else {
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('gulin-theme', 'dark');
+    }
+}
+
+// Cargar tema guardado o detectar preferencia del sistema
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('gulin-theme');
+    const icon = document.querySelector('#themeToggle i');
+    
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        if (icon) icon.className = 'fas fa-sun';
+    } else if (savedTheme === 'dark') {
+        document.body.classList.remove('light-mode');
+        if (icon) icon.className = 'fas fa-moon';
+    } else {
+        // Detectar preferencia del sistema
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (prefersLight) {
+            document.body.classList.add('light-mode');
+            if (icon) icon.className = 'fas fa-sun';
+        }
+    }
+});
+
 // Console branding
 console.log('%c GuLIN AI Agent ', 'background: linear-gradient(135deg, #8b5cf6, #6366f1); color: white; font-size: 18px; font-weight: bold; padding: 8px 16px; border-radius: 8px;');
 console.log('%c Inteligencia Autónoma para TI Empresarial', 'color: #94a3b8; font-size: 13px;');
