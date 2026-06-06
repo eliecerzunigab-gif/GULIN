@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GuLIN Enterprise - Brochure Corporativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a1a;color:#f0f0f8;line-height:1.5;-webkit-font-smoothing:antialiased}
+.accent{background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page{width:100%;height:100vh;padding:5% 7%;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;page-break-after:always}
+.page-inner{width:100%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;height:100%}
+h2{font-size:clamp(28px,3.8vw,48px);font-weight:800;line-height:1.15;margin-bottom:clamp(20px,3vw,40px);letter-spacing:-0.02em}
+p{font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,0.75);line-height:1.6}
+.page-cover{background:linear-gradient(135deg,#0a0a1a,#0f0f2a,#1a0a2e);text-align:center;align-items:center}
+.page-cover .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,3.5vw,50px)}
+.cover-logo{width:clamp(130px,16vw,220px);height:clamp(130px,16vw,220px);border-radius:50%;overflow:hidden;border:4px solid rgba(0,240,255,0.5);display:flex;align-items:center;justify-content:center;background:rgba(10,10,26,0.95);padding:10px}
+.cover-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.cover-title .line{font-size:clamp(44px,6vw,80px);font-weight:900;letter-spacing:-0.03em;line-height:1}
+.cover-subtitle{max-width:900px;font-size:clamp(16px,1.8vw,22px)}
+.cover-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 28px;border:1px solid rgba(0,240,255,0.25);border-radius:50px;font-size:clamp(12px,1.1vw,15px);color:rgba(255,255,255,0.6)}
+.cover-badge .dot{width:8px;height:8px;border-radius:50%;background:#00f0ff}
+.page-content{background:#0a0a1a}
+.page-content-alt{background:#0d0d24}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,36px)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px)}
+.card-center{text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:clamp(20px,3vw,40px)}
+.num-lg{font-size:clamp(36px,4.5vw,60px);font-weight:800;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lbl-sm{font-size:clamp(13px,1.4vw,18px);color:rgba(255,255,255,0.4);margin-top:10px;line-height:1.5}
+.sol-card{border-radius:16px;padding:clamp(20px,3vw,40px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:4px solid var(--c,#00f0ff)}
+.sol-card h3{font-size:clamp(20px,2.2vw,30px);font-weight:700;margin-bottom:12px;color:var(--c,#00f0ff)}
+.sol-card p{font-size:clamp(14px,1.5vw,19px);margin-bottom:14px}
+.sol-card ul{list-style:none}
+.sol-card ul li{font-size:clamp(13px,1.3vw,17px);color:rgba(255,255,255,0.4);padding-left:16px;position:relative;margin-bottom:6px}
+.sol-card ul li::before{content:'→';position:absolute;left:0;color:var(--c,#00f0ff)}
+.role-card{border-radius:16px;padding:clamp(20px,3vw,40px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)}
+.role-card h3{font-size:clamp(18px,2vw,26px);font-weight:600;margin-bottom:12px;color:#00f0ff}
+.role-card p{font-size:clamp(14px,1.5vw,19px)}
+.arch-layers{display:flex;flex-direction:column;gap:8px}
+.arch-layer{padding:clamp(12px,1.8vw,24px);border-radius:10px;font-size:clamp(14px,1.6vw,20px);font-weight:500;text-align:center}
+.arch-layer.l1{background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.3);color:#00f0ff}
+.arch-layer.l2{background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#7c3aed}
+.arch-layer.l3{background:rgba(6,214,160,0.1);border:1px solid rgba(6,214,160,0.3);color:#06d6a0}
+.arch-layer.l4{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#f59e0b}
+.arch-layer.l5{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#ef4444}
+.arch-feat{display:flex;align-items:flex-start;gap:12px;font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.7);margin-bottom:14px}
+.arch-feat .dot{color:#00f0ff;font-size:22px;line-height:1;margin-top:2px}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px)}
+.dash-card{padding:clamp(14px,2vw,28px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.dash-card .hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.dash-card .lbl{font-size:clamp(12px,1.3vw,16px);color:rgba(255,255,255,0.4)}
+.dash-card .val{font-size:clamp(20px,2.5vw,34px);font-weight:700}
+.dash-card .val.gr{color:#06d6a0}.dash-card .val.cy{color:#00f0ff}.dash-card .val.wa{color:#f59e0b}
+.dash-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.dash-bar .fill{height:100%;background:linear-gradient(90deg,#00f0ff,#7c3aed);border-radius:3px}
+.dash-bar .fill.gr{background:#06d6a0}.dash-bar .fill.cy{background:#00f0ff}
+.dash-metrics{display:flex;justify-content:center;gap:clamp(30px,5vw,70px);margin-top:clamp(20px,3vw,40px)}
+.dash-metric{text-align:center}
+.dash-metric .n{font-size:clamp(30px,3.8vw,50px);font-weight:700}
+.dash-metric .l{font-size:clamp(10px,1.1vw,14px);color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-top:6px}
+.eff-highlight{display:block;padding:clamp(14px,2vw,28px);background:rgba(0,240,255,0.05);border-left:4px solid #00f0ff;border-radius:0 10px 10px 0;font-size:clamp(15px,1.6vw,20px);font-weight:500;color:#f0f0f8;margin-top:clamp(14px,2vw,28px)}
+.eff-num{text-align:center;padding:clamp(16px,2.5vw,34px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.eff-num .v{font-size:clamp(32px,4vw,54px);font-weight:800;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eff-num .l{font-size:clamp(12px,1.3vw,16px);color:rgba(255,255,255,0.4);margin-top:6px}
+.compare-table{width:100%;border-collapse:collapse;font-size:clamp(14px,1.6vw,20px)}
+.compare-table th{padding:clamp(12px,1.8vw,24px);text-align:left;font-weight:600;font-size:clamp(12px,1.3vw,16px);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid rgba(255,255,255,0.08)}
+.compare-table th:nth-child(1){color:rgba(255,255,255,0.4);width:22%}
+.compare-table th:nth-child(2){color:#ef4444;width:39%}
+.compare-table th:nth-child(3){color:#00f0ff;width:39%}
+.compare-table td{padding:clamp(12px,1.8vw,24px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.compare-table .at{font-weight:600;color:#f0f0f8;white-space:nowrap}
+.compare-table .lg{color:rgba(255,255,255,0.6)}
+.compare-table .gl{color:#f0f0f8;font-weight:500}
+.mttr-chart{display:flex;align-items:flex-end;justify-content:center;gap:clamp(20px,4vw,60px);height:clamp(160px,28vw,360px);padding:clamp(10px,1.5vw,20px) 0}
+.mttr-bar{display:flex;flex-direction:column;align-items:center;gap:10px;width:clamp(80px,14vw,200px)}
+.mttr-bar .fill{width:100%;border-radius:10px 10px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:clamp(8px,1.2vw,18px);min-height:clamp(28px,5vw,70px)}
+.mttr-bar .fill.rd{background:linear-gradient(180deg,rgba(239,68,68,0.6),rgba(239,68,68,0.2));border:1px solid rgba(239,68,68,0.3)}
+.mttr-bar .fill.wa{background:linear-gradient(180deg,rgba(245,158,11,0.6),rgba(245,158,11,0.2));border:1px solid rgba(245,158,11,0.3)}
+.mttr-bar .fill.cy{background:linear-gradient(180deg,rgba(0,240,255,0.6),rgba(0,240,255,0.2));border:1px solid rgba(0,240,255,0.3)}
+.mttr-bar .v{font-size:clamp(14px,1.8vw,22px);font-weight:700}
+.mttr-bar .l{font-size:clamp(12px,1.3vw,16px);color:rgba(255,255,255,0.4);text-align:center}
+.roi-chart{width:100%;max-width:1000px;margin:0 auto}
+.roi-chart svg{width:100%;height:auto}
+.roadmap{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.5vw,20px);padding-left:clamp(20px,3vw,40px);max-width:900px;margin:0 auto}
+.roadmap::before{content:'';position:absolute;left:clamp(5px,0.8vw,10px);top:0;bottom:0;width:3px;background:linear-gradient(180deg,#00f0ff,#7c3aed);opacity:0.3}
+.roadmap-phase{position:relative;padding-left:clamp(16px,2.5vw,32px)}
+.roadmap-phase .dot{position:absolute;left:clamp(-18px,-2.5vw,-28px);top:clamp(8px,1.2vw,18px);width:clamp(10px,1.5vw,18px);height:clamp(10px,1.5vw,18px);border-radius:50%;border:3px solid #00f0ff;background:#0d0d24}
+.roadmap-phase:nth-child(1) .dot{border-color:#00f0ff}
+.roadmap-phase:nth-child(2) .dot{border-color:#7c3aed}
+.roadmap-phase:nth-child(3) .dot{border-color:#06d6a0}
+.roadmap-phase:nth-child(4) .dot{border-color:#f59e0b}
+.roadmap-phase .content{padding:clamp(14px,2vw,28px) clamp(16px,2.5vw,34px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.roadmap-phase .label{font-size:clamp(14px,1.6vw,20px);font-weight:600;color:#00f0ff;margin-bottom:6px;letter-spacing:0.05em}
+.roadmap-phase p{font-size:clamp(13px,1.4vw,18px)}
+.page-contact{background:linear-gradient(135deg,#0a0a1a,#0f0f2a,#1a0a2e);text-align:center;align-items:center}
+.page-contact .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,2.5vw,36px)}
+.contact-items{display:flex;flex-direction:column;gap:clamp(8px,1.2vw,16px);width:100%;max-width:500px}
+.contact-item{display:flex;align-items:center;justify-content:center;gap:12px;padding:clamp(12px,1.8vw,24px) clamp(16px,2.5vw,34px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.contact-item a{color:#f0f0f8;text-decoration:none;font-size:clamp(16px,1.8vw,22px);font-weight:500}
+.contact-item .ic{font-size:clamp(18px,2vw,26px)}
+.footer-text{font-size:clamp(10px,1vw,13px);color:rgba(255,255,255,0.3);margin-top:clamp(10px,1.5vw,20px)}
+.download-bar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 24px;display:flex;justify-content:space-between;align-items:center}
+.download-bar .brand{font-weight:700;font-size:16px}
+.download-bar .brand span{background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#00f0ff,#7c3aed);color:#fff;border:none;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.3s}
+.download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,240,255,0.3)}
+@media print{.download-bar{display:none!important}body{background:#0a0a1a}.page{margin:0;padding:4% 5%;width:100%;height:100vh;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:landscape;margin:0}}
+@media(max-width:768px){.page{padding:6% 4%;height:auto;min-height:100vh}.grid-3,.grid-2{grid-template-columns:1fr}.cover-title .line{font-size:32px}.mttr-chart{height:100px}.mttr-bar{width:60px}.download-bar{flex-direction:column;gap:8px;padding:8px 12px}}
+</style>
+</head>
+<body>
+<div class="download-bar">
+<div class="brand">GuLIN <span>Enterprise</span></div>
+<button class="download-btn" onclick="window.print()"><span>⬇</span> Descargar PDF</button>
+</div>
+
+<!-- 1: PORTADA -->
+<div class="page page-cover">
+<div class="page-inner">
+<div class="cover-logo"><img src="GULIN_LOGO_4.jpeg" alt="GuLIN"></div>
+<div class="cover-title"><div class="line">GuLIN</div><div class="line accent">Enterprise</div></div>
+<p class="cover-subtitle">La Plataforma Definitiva de Operaciones, Ciberseguridad y Monitoreo de TI para Empresas Modernas</p>
+<div class="cover-badge"><span class="dot"></span><span>Brochure Corporativo 2026</span></div>
+</div></div>
+
+<!-- 2: DESAFIO -->
+<div class="page page-content">
+<div class="page-inner">
+<h2>El Desafio de la TI Moderna</h2>
+<p style="text-align:center;max-width:900px;margin:0 auto clamp(24px,3.5vw,48px)">Silos operacionales, herramientas fragmentadas y falta de visibilidad que comprometen la eficiencia y seguridad en su organizacion.</p>
+<div class="grid-3">
+<div class="card-center"><div class="num-lg">73%</div><div class="lbl-sm">de empresas sufren brechas de seguridad por falta de visibilidad en su infraestructura</div></div>
+<div class="card-center"><div class="num-lg">5+</div><div class="lbl-sm">herramientas de monitoreo distintas por equipo de TI, sin integracion entre si</div></div>
+<div class="card-center"><div class="num-lg">40%</div><div class="lbl-sm">del tiempo operativo se pierde en silos y falta de comunicacion entre sistemas</div></div>
+</div></div></div>
+
+<!-- 3: SOLUCIONES -->
+<div class="page page-content-alt">
+<div class="page-inner">
+<h2>Una Plataforma, <span class="accent">Tres Soluciones</span></h2>
+<div class="grid-3">
+<div class="sol-card" style="--c:#00f0ff">
+<h3>Ciberseguridad</h3>
+<p>Monitoreo activo y deteccion proactiva de amenazas en toda su infraestructura corporativa, reduciendo riesgos sustancialmente.</p>
+<ul><li>Deteccion de amenazas en tiempo real</li><li>Analisis continuo de vulnerabilidades</li><li>Respuesta automatizada ante incidentes</li></ul></div>
+<div class="sol-card" style="--c:#7c3aed">
+<h3>Optimizacion</h3>
+<p>Automatizacion de procesos complejos y orquestacion de operaciones para maximizar la productividad del personal tecnico.</p>
+<ul><li>Automatizacion de flujos sin codigo</li><li>Orquestacion nativa de servicios</li><li>Workflows inteligentes y repetibles</li></ul></div>
+<div class="sol-card" style="--c:#06d6a0">
+<h3>Visibilidad</h3>
+<p>Telemetria consolidada en un solo panel para analisis de rendimiento, metricas criticas y toma de decisiones inmediatas.</p>
+<ul><li>Dashboard unificado en tiempo real</li><li>Metricas de rendimiento en vivo</li><li>Reportes automatizados personalizables</li></ul></div>
+</div></div></div>
+
+<!-- 4: ROLES -->
+<div class="page page-content">
+<div class="page-inner">
+<h2>Valor Disenado <span class="accent">por Roles</span></h2>
+<div class="grid-3">
+<div class="role-card"><h3>Gerentes y Directores de TI</h3><p>Alineacion estrategica de tecnologia con objetivos de negocio, control total de presupuestos y un retorno de inversion (ROI) claro y transparente.</p></div>
+<div class="role-card"><h3>Oficiales de Seguridad</h3><p>Cumplimiento normativo estricto simplificado (ISO 27001, GDPR) y auditorias automatizadas sin esfuerzo manual, con trazabilidad completa.</p></div>
+<div class="role-card"><h3>Equipos Tecnicos e Ingenieros</h3><p>Alertas inteligentes sin falsos positivos, APIs REST ultra documentadas y facil automatizacion por script para integraciones personalizadas.</p></div>
+</div></div></div>
+
+<!-- 5: ARQUITECTURA -->
+<div class="page page-content-alt">
+<div class="page-inner">
+<h2>Arquitectura de <span class="accent">Alto Rendimiento</span></h2>
+<div class="grid-2">
+<div class="arch-layers">
+<div class="arch-layer l1">Panel de Control Unificado</div>
+<div class="arch-layer l2">API REST / GraphQL</div>
+<div class="arch-layer l3">Motor de Analisis y Alertas</div>
+<div class="arch-layer l4">Capa de Datos Cifrados</div>
+<div class="arch-layer l5">Agentes Ligeros Distribuidos</div>
+</div>
+<div>
+<div class="arch-feat"><span class="dot">●</span> Agentes de bajisimo consumo con huella minima de RAM y CPU en servidores</div>
+<div class="arch-feat"><span class="dot">●</span> Despliegue altamente escalable en Nube, On-Premise e Hibrido segun necesidad</div>
+<div class="arch-feat"><span class="dot">●</span> Cifrado de nivel militar para datos en transito y en reposo con estandares AES-256</div>
+<div class="arch-feat"><span class="dot">●</span> Diseño ligero e integrado que se acopla perfectamente a sistemas existentes</div>
+</div>
+</div></div></div>
+
+<!-- 6: DASHBOARD -->
+<div class="page page-content">
+<div class="page-inner">
+<h2>Cybersecurity Network <span class="accent">Telemetry Dashboard</span></h2>
+<div class="dash-grid">
+<div class="dash-card"><div class="hdr"><span class="lbl">Amenazas Activas</span><span class="val wa">12</span></div><div class="dash-bar"><div class="fill" style="width:65%"></div></div></div>
+<div class="dash-card"><div class="hdr"><span class="lbl">Uptime del Sistema</span><span class="val gr">99.9%</span></div><div class="dash-bar"><div class="fill gr" style="width:99.9%"></div></div></div>
+<div class="dash-card"><div class="hdr"><span class="lbl">Latencia Promedio</span><span class="val cy">24ms</span></div><div class="dash-bar"><div class="fill cy" style="width:24%"></div></div></div>
+<div class="dash-card"><div class="hdr"><span class="lbl">Paquetes Analizados</span><span class="val">2.4M</span></div><div class="dash-bar"><div class="fill" style="width:85%"></div></div></div>
+</div>
+<div class="dash-metrics">
+<div class="dash-metric"><div class="n" style="color:#00f0ff">99.9%</div><div class="l">Uptime Garantizado</div></div>
+<div class="dash-metric"><div class="n" style="color:#7c3aed">70%</div><div class="l">Menos Falsas Alertas</div></div>
+<div class="dash-metric"><div class="n" style="color:#06d6a0">3x</div><div class="l">Velocidad de Diagnostico</div></div>
+</div>
+<p style="text-align:center;margin-top:clamp(14px,2vw,28px);font-weight:500;font-size:clamp(14px,1.5vw,19px)">Rendimiento Operativo Probado con 99.9% de Uptime y Disponibilidad Garantizados</p>
+</div></div>
+
+<!-- 7: EFICIENCIA -->
+<div class="page page-content-alt">
+<div class="page-inner">
+<h2>Eficiencia Operativa <span class="accent">Multiplicada</span></h2>
+<div class="grid-2">
+<div>
+<p>GuLIN permite consolidar multiples herramientas dispersas en una sola plataforma unificada. Esto disminuye dramaticamente la latencia de diagnostico y previene interrupciones costosas antes de que afecten al usuario final.</p>
+<span class="eff-highlight">Unifique sus recursos y logre un control transparente y predecible de su entorno tecnologico.</span>
+</div>
+<div class="grid-3" style="gap:clamp(10px,1.5vw,20px)">
+<div class="eff-num"><div class="v">87%</div><div class="l">Reduccion en tiempo de diagnostico de incidentes</div></div>
+<div class="eff-num"><div class="v">60%</div><div class="l">Menos interrupciones al usuario final</div></div>
+<div class="eff-num"><div class="v">3.2x</div><div class="l">Retorno de inversion en el primer ano</div></div>
+</div>
+</div></div></div>
+
+<!-- 8: COMPARATIVA -->
+<div class="page page-content">
+<div class="page-inner">
+<h2>GuLIN frente al <span class="accent">Software Tradicional</span></h2>
+<table class="compare-table">
+<thead><tr><th>Atributo Clave</th><th>Solucion Legacy Tradicional</th><th>GuLIN Enterprise</th></tr></thead>
+<tbody>
+<tr><td class="at">Tiempo de Despliegue</td><td class="lg">Meses de consultoria externa</td><td class="gl">Listo en menos de una semana</td></tr>
+<tr><td class="at">Consumo de Recursos</td><td class="lg">Agentes pesados e invasivos</td><td class="gl">Huella ultra-baja en servidor</td></tr>
+<tr><td class="at">Estructura de Costes</td><td class="lg">Inversion de capital fija inicial (CapEx)</td><td class="gl">Suscripcion predecible flexible (OpEx)</td></tr>
+<tr><td class="at">Automatizacion Integrada</td><td class="lg">Requiere scripting y APIs manuales</td><td class="gl">Orquestacion nativa sin codigo</td></tr>
+</tbody>
+</table></div></div>
+
+<!-- 9: MTTR -->
+<div class="page page-content-alt">
+<div class="page-inner">
+<h2>Resolucion de Incidentes <span class="accent">(MTTR)</span></h2>
+<div class="mttr-chart">
+<div class="mttr-bar"><div class="fill rd" style="height:100%"><span class="v">120 min</span></div><span class="l">Infraestructura Legacy</span></div>
+<div class="mttr-bar"><div class="fill wa" style="height:37.5%"><span class="v">45 min</span></div><span class="l">Sistemas Fragmentados</span></div>
+<div class="mttr-bar"><div class="fill cy" style="height:12.5%"><span class="v">15 min</span></div><span class="l">Plataforma GuLIN</span></div>
+</div>
+<p style="text-align:center;max-width:900px;margin:clamp(14px,2vw,28px) auto 0">Analisis comparativo del Tiempo Medio de Resolucion (MTTR) ante vulnerabilidades de red o incidentes criticos. GuLIN reduce significativamente la ventana de exposicion al riesgo.</p>
+</div></div>
+
+<!-- 10: ROI -->
+<div class="page page-content">
+<div class="page-inner">
+<h2>Curva de Retorno de <span class="accent">Inversion (ROI)</span></h2>
+<div class="roi-chart">
+<svg viewBox="0 0 600 240" style="color:rgba(255,255,255,0.4)">
+<line x1="50" y1="200" x2="550" y2="200" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+<line x1="50" y1="150" x2="550" y2="150" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+<line x1="50" y1="100" x2="550" y2="100" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+<line x1="50" y1="50" x2="550" y2="50" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+<line x1="50" y1="200" x2="50" y2="20" stroke="currentColor" stroke-width="2"/>
+<line x1="50" y1="200" x2="550" y2="200" stroke="currentColor" stroke-width="2"/>
+<path d="M50 190 Q150 180 200 150 Q250 120 300 100 Q350 70 400 45 Q450 25 500 18 Q530 14 550 12" fill="none" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+<path d="M50 190 Q150 180 200 150 Q250 120 300 100 Q350 70 400 45 Q450 25 500 18 Q530 14 550 12 L550 200 Z" fill="url(#g)" opacity="0.3"/>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00f0ff"/><stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/></linearGradient></defs>
+<circle cx="150" cy="180" r="5" fill="#00f0ff"/><circle cx="300" cy="100" r="5" fill="#00f0ff"/>
+<circle cx="450" cy="25" r="5" fill="#00f0ff"/><circle cx="550" cy="12" r="6" fill="#00f0ff"/>
+<text x="150" y="220" fill="currentColor" font-size="13" text-anchor="middle" opacity="0.7">Mes 1</text>
+<text x="250" y="220" fill="currentColor" font-size="13" text-anchor="middle" opacity="0.7">Mes 3</text>
+<text x="350" y="220" fill="currentColor" font-size="13" text-anchor="middle" opacity="0.7">Mes 6</text>
+<text x="450" y="220" fill="currentColor" font-size="13" text-anchor="middle" opacity="0.7">Mes 9</text>
+<text x="550" y="220" fill="currentColor" font-size="13" text-anchor="middle" opacity="0.7">Mes 12</text>
+<text x="40" y="204" fill="currentColor" font-size="11" text-anchor="end" opacity="0.5">0</text>
+<text x="40" y="154" fill="currentColor" font-size="11" text-anchor="end" opacity="0.5">50%</text>
+<text x="40" y="64" fill="currentColor" font-size="11" text-anchor="end" opacity="0.5">100%</text>
+</svg>
+</div>
+<p style="text-align:center;max-width:900px;margin:clamp(14px,2vw,28px) auto 0">Curva proyectada de reduccion de costes operativos y recuperacion del gasto inicial a lo largo del primer ano, optimizando los flujos de trabajo tecnicos.</p>
+</div></div>
+
+<!-- 11: ROADMAP -->
+<div class="page page-content-alt">
+<div class="page-inner">
+<h2>Plan de Implementacion <span class="accent">y Roadmap</span></h2>
+<div class="roadmap">
+<div class="roadmap-phase"><div class="dot"></div><div class="content"><div class="label">Fase 1: Q1</div><p>Auditoria inicial de infraestructura, despliegue de agentes ligeros GuLIN y onboarding tecnico.</p></div></div>
+<div class="roadmap-phase"><div class="dot"></div><div class="content"><div class="label">Fase 2: Q2</div><p>Integracion de APIs y automatizacion de procesos repetitivos del equipo de operaciones de red.</p></div></div>
+<div class="roadmap-phase"><div class="dot"></div><div class="content"><div class="label">Fase 3: Q3</div><p>Lanzamiento de analitica avanzada predictiva con algoritmos de deteccion temprana de incidentes.</p></div></div>
+<div class="roadmap-phase"><div class="dot"></div><div class="content"><div class="label">Fase 4: Q4</div><p>Expansion a arquitecturas multi-sede con monitorizacion geo-distribuida unificada.</p></div></div>
+</div></div></div>
+
+<!-- 12: FILOSOFIA + CONTACTO -->
+<div class="page page-contact">
+<div class="page-inner">
+<h2>Filosofia <span class="accent">Operacional</span></h2>
+<div style="font-size:clamp(48px,6vw,80px);font-weight:900;line-height:1;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.15;margin-bottom:-20px">"</div>
+<blockquote style="font-size:clamp(18px,2vw,26px);max-width:800px;margin:0 auto clamp(12px,1.5vw,20px);text-align:center;color:rgba(255,255,255,0.75);font-style:italic;line-height:1.7">
+La simplicidad inteligente es el mayor pilar de la ciberseguridad. GuLIN reduce el ruido tecnico para que las organizaciones se enfoquen en innovar y crecer con absoluta tranquilidad.
+</blockquote>
+<div style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:clamp(14px,1.5vw,18px);color:rgba(255,255,255,0.4);margin-bottom:clamp(24px,4vw,56px)">
+<span style="width:40px;height:2px;background:#00f0ff"></span>
+<span>— Comite de Arquitectura de GuLIN</span>
+</div>
+<h2>Damos el <span class="accent">Siguiente Paso?</span></h2>
+<p style="max-width:600px;text-align:center">Agende hoy mismo una demostracion tecnica y personalizada con uno de nuestros ingenieros de infraestructura.</p>
+<div class="contact-items">
+<div class="contact-item"><span class="ic">✉</span><a href="mailto:demo@gulin.io">demo@gulin.io</a></div>
+<div class="contact-item"><span class="ic">🌐</span><a href="https://www.gulin.io" target="_blank">www.gulin.io</a></div>
+<div class="contact-item"><span class="ic">📞</span><a href="tel:+56223456789">+56 2 2345 6789</a></div>
+</div>
+<p class="footer-text">© 2026 GuLIN Enterprise. Todos los derechos reservados.</p>
+</div></div>
+
+<script>function downloadPDF(){window.print()}</script>
+</body>
+</html>
