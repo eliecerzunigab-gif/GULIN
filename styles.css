@@ -60,32 +60,32 @@ img {
    Logo Image - Estilos compartidos
    ============================================ */
 .logo-img {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
     object-fit: cover;
     flex-shrink: 0;
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.15);
     transition: var(--transition);
 }
 
 .logo-img:hover {
     border-color: var(--primary-light);
-    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
 }
 
 .logo-img-footer {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
 }
 
 .logo-img-modal {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    margin: 0 auto 1rem;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    margin: 0 auto 0.75rem;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
 }
 
 /* ============================================
@@ -1618,12 +1618,25 @@ img {
     }
 
     .logo-img {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+    }
+
+    .logo-img-footer {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+    }
+
+    .logo-img-modal {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
     }
 
     .logo-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
