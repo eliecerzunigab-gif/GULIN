@@ -11,82 +11,95 @@
 body{font-family:'Inter',sans-serif;background:#0a0a1a;color:#f0f0f8;line-height:1.5;-webkit-font-smoothing:antialiased}
 .accent{background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .accent-green{background:linear-gradient(135deg,#06d6a0,#00f0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.page{width:100%;height:100vh;padding:5% 7%;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;page-break-after:always}
+.page{width:100%;height:100vh;padding:4% 6%;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;page-break-after:always}
 .page-inner{width:100%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;height:100%}
-h2{font-size:clamp(28px,3.8vw,48px);font-weight:800;line-height:1.15;margin-bottom:clamp(20px,3vw,40px);letter-spacing:-0.02em}
-h3{font-size:clamp(20px,2.2vw,30px);font-weight:700;margin-bottom:12px}
-p{font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,0.75);line-height:1.6}
+h2{font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.15;margin-bottom:clamp(16px,2.5vw,32px);letter-spacing:-0.02em}
+h3{font-size:clamp(18px,2vw,26px);font-weight:700;margin-bottom:10px}
+p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 .page-cover{background:linear-gradient(135deg,#0a0a1a,#0f0f2a,#1a0a2e);text-align:center;align-items:center}
-.page-cover .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,3.5vw,50px)}
-.cover-logo{width:clamp(130px,16vw,220px);height:clamp(130px,16vw,220px);border-radius:50%;overflow:hidden;border:4px solid rgba(0,240,255,0.5);display:flex;align-items:center;justify-content:center;background:rgba(10,10,26,0.95);padding:10px}
+.page-cover .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,2.5vw,40px)}
+.cover-logo{width:clamp(110px,14vw,180px);height:clamp(110px,14vw,180px);border-radius:50%;overflow:hidden;border:4px solid rgba(0,240,255,0.5);display:flex;align-items:center;justify-content:center;background:rgba(10,10,26,0.95);padding:10px}
 .cover-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.cover-title .line{font-size:clamp(44px,6vw,80px);font-weight:900;letter-spacing:-0.03em;line-height:1}
-.cover-subtitle{max-width:900px;font-size:clamp(16px,1.8vw,22px)}
-.cover-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 28px;border:1px solid rgba(0,240,255,0.25);border-radius:50px;font-size:clamp(12px,1.1vw,15px);color:rgba(255,255,255,0.6)}
+.cover-title .line{font-size:clamp(38px,5vw,70px);font-weight:900;letter-spacing:-0.03em;line-height:1}
+.cover-subtitle{max-width:900px;font-size:clamp(14px,1.5vw,19px)}
+.cover-badge{display:inline-flex;align-items:center;gap:12px;padding:8px 24px;border:1px solid rgba(0,240,255,0.25);border-radius:50px;font-size:clamp(11px,1vw,14px);color:rgba(255,255,255,0.6)}
 .cover-badge .dot{width:8px;height:8px;border-radius:50%;background:#00f0ff}
 .page-content{background:#0a0a1a}
 .page-content-alt{background:#0d0d24}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,36px)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px)}
-.card-center{text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:clamp(20px,3vw,40px)}
-.num-lg{font-size:clamp(36px,4.5vw,60px);font-weight:800;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lbl-sm{font-size:clamp(13px,1.4vw,18px);color:rgba(255,255,255,0.4);margin-top:10px;line-height:1.5}
-.compare-table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.4vw,18px)}
-.compare-table th{padding:clamp(12px,1.8vw,24px);text-align:left;font-weight:600;font-size:clamp(11px,1.2vw,15px);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid rgba(255,255,255,0.08)}
-.compare-table th:nth-child(1){color:rgba(255,255,255,0.4);width:28%}
-.compare-table th:nth-child(2){color:#ef4444;width:36%}
-.compare-table th:nth-child(3){color:#00f0ff;width:36%}
-.compare-table td{padding:clamp(10px,1.5vw,20px);border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,28px)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,36px)}
+.card-center{text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:clamp(16px,2.5vw,32px)}
+.num-lg{font-size:clamp(32px,4vw,52px);font-weight:800;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lbl-sm{font-size:clamp(12px,1.2vw,16px);color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.5}
+
+/* Tabla comparativa mejorada */
+.compare-table{width:100%;border-collapse:collapse;font-size:clamp(12px,1.2vw,16px)}
+.compare-table th{padding:clamp(10px,1.2vw,18px);text-align:left;font-weight:600;font-size:clamp(10px,1vw,13px);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid rgba(255,255,255,0.08)}
+.compare-table th:nth-child(1){color:rgba(255,255,255,0.4);width:22%}
+.compare-table th:nth-child(2){color:#ef4444;width:39%}
+.compare-table th:nth-child(3){color:#00f0ff;width:39%}
+.compare-table td{padding:clamp(8px,1vw,14px);border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:middle}
+.compare-table tr:last-child td{border-bottom:none}
 .compare-table .at{font-weight:600;color:#f0f0f8;white-space:nowrap}
-.compare-table .lg{color:rgba(255,255,255,0.5)}
-.compare-table .gl{color:#f0f0f8;font-weight:500}
-.compare-table .check{color:#06d6a0;font-weight:700}
-.compare-table .cross{color:#ef4444;opacity:0.6}
-.benefit-card{border-radius:16px;padding:clamp(20px,3vw,40px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:4px solid var(--c,#00f0ff)}
-.benefit-card h3{font-size:clamp(18px,2vw,26px);font-weight:700;margin-bottom:12px;color:var(--c,#00f0ff)}
-.benefit-card p{font-size:clamp(14px,1.5vw,19px);margin-bottom:14px}
+.compare-table .lg{color:rgba(255,255,255,0.5);font-size:clamp(11px,1.1vw,15px)}
+.compare-table .gl{color:#f0f0f8;font-weight:500;font-size:clamp(11px,1.1vw,15px)}
+.compare-table .check{color:#06d6a0;font-weight:700;font-size:clamp(14px,1.4vw,18px)}
+.compare-table .cross{color:#ef4444;opacity:0.6;font-size:clamp(14px,1.4vw,18px)}
+
+/* Benefit cards */
+.benefit-card{border-radius:14px;padding:clamp(16px,2.5vw,32px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:4px solid var(--c,#00f0ff)}
+.benefit-card h3{font-size:clamp(16px,1.8vw,22px);font-weight:700;margin-bottom:10px;color:var(--c,#00f0ff)}
+.benefit-card p{font-size:clamp(12px,1.2vw,16px);margin-bottom:12px}
 .benefit-card ul{list-style:none}
-.benefit-card ul li{font-size:clamp(13px,1.3vw,17px);color:rgba(255,255,255,0.4);padding-left:16px;position:relative;margin-bottom:6px}
+.benefit-card ul li{font-size:clamp(11px,1.1vw,15px);color:rgba(255,255,255,0.4);padding-left:16px;position:relative;margin-bottom:5px}
 .benefit-card ul li::before{content:'→';position:absolute;left:0;color:var(--c,#00f0ff)}
-.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,36px)}
-.cost-card{padding:clamp(20px,3vw,40px);border-radius:16px;text-align:center}
+
+/* Costos */
+.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px)}
+.cost-card{padding:clamp(16px,2.5vw,32px);border-radius:14px;text-align:center}
 .cost-card.bytebase{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2)}
 .cost-card.gulin{background:rgba(0,240,255,0.05);border:1px solid rgba(0,240,255,0.2)}
-.cost-card .name{font-size:clamp(18px,2vw,26px);font-weight:700;margin-bottom:8px}
-.cost-card .price{font-size:clamp(36px,4.5vw,60px);font-weight:800;margin:clamp(12px,1.8vw,24px) 0}
-.cost-card .price .currency{font-size:clamp(18px,2.2vw,28px);vertical-align:super}
-.cost-card .price .period{font-size:clamp(14px,1.5vw,18px);font-weight:400;color:rgba(255,255,255,0.4)}
-.cost-card .desc{font-size:clamp(13px,1.4vw,17px);color:rgba(255,255,255,0.5);margin-bottom:clamp(16px,2.5vw,32px)}
-.cost-card .savings{display:inline-block;padding:8px 20px;border-radius:50px;font-size:clamp(14px,1.5vw,18px);font-weight:600}
+.cost-card .name{font-size:clamp(16px,1.8vw,22px);font-weight:700;margin-bottom:6px}
+.cost-card .price{font-size:clamp(32px,4vw,52px);font-weight:800;margin:clamp(10px,1.5vw,20px) 0}
+.cost-card .price .currency{font-size:clamp(16px,2vw,24px);vertical-align:super}
+.cost-card .price .period{font-size:clamp(12px,1.2vw,16px);font-weight:400;color:rgba(255,255,255,0.4)}
+.cost-card .desc{font-size:clamp(11px,1.1vw,15px);color:rgba(255,255,255,0.5);margin-bottom:clamp(12px,2vw,24px)}
+.cost-card .savings{display:inline-block;padding:6px 16px;border-radius:50px;font-size:clamp(12px,1.2vw,16px);font-weight:600}
 .cost-card .savings.big{background:rgba(6,214,160,0.15);color:#06d6a0;border:1px solid rgba(6,214,160,0.3)}
-.timeline{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.5vw,20px);padding-left:clamp(20px,3vw,40px);max-width:900px;margin:0 auto}
-.timeline::before{content:'';position:absolute;left:clamp(5px,0.8vw,10px);top:0;bottom:0;width:3px;background:linear-gradient(180deg,#00f0ff,#7c3aed);opacity:0.3}
-.timeline-item{position:relative;padding-left:clamp(16px,2.5vw,32px)}
-.timeline-item .dot{position:absolute;left:clamp(-18px,-2.5vw,-28px);top:clamp(8px,1.2vw,18px);width:clamp(10px,1.5vw,18px);height:clamp(10px,1.5vw,18px);border-radius:50%;border:3px solid #00f0ff;background:#0d0d24}
+
+/* Timeline */
+.timeline{position:relative;display:flex;flex-direction:column;gap:clamp(8px,1.2vw,16px);padding-left:clamp(16px,2.5vw,32px);max-width:900px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:clamp(4px,0.6vw,8px);top:0;bottom:0;width:3px;background:linear-gradient(180deg,#00f0ff,#7c3aed);opacity:0.3}
+.timeline-item{position:relative;padding-left:clamp(14px,2vw,28px)}
+.timeline-item .dot{position:absolute;left:clamp(-14px,-2vw,-22px);top:clamp(6px,1vw,14px);width:clamp(8px,1.2vw,14px);height:clamp(8px,1.2vw,14px);border-radius:50%;border:3px solid #00f0ff;background:#0d0d24}
 .timeline-item:nth-child(1) .dot{border-color:#00f0ff}
 .timeline-item:nth-child(2) .dot{border-color:#7c3aed}
 .timeline-item:nth-child(3) .dot{border-color:#06d6a0}
 .timeline-item:nth-child(4) .dot{border-color:#f59e0b}
-.timeline-item .content{padding:clamp(14px,2vw,28px) clamp(16px,2.5vw,34px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
-.timeline-item .label{font-size:clamp(14px,1.6vw,20px);font-weight:600;color:#00f0ff;margin-bottom:6px;letter-spacing:0.05em}
-.timeline-item p{font-size:clamp(13px,1.4vw,18px)}
-.highlight-box{padding:clamp(16px,2.5vw,32px);background:rgba(0,240,255,0.05);border:2px solid rgba(0,240,255,0.2);border-radius:16px;text-align:center;margin-top:clamp(16px,2.5vw,32px)}
-.highlight-box h3{color:#00f0ff;margin-bottom:8px}
-.highlight-box p{font-size:clamp(15px,1.6vw,20px);max-width:800px;margin:0 auto}
+.timeline-item .content{padding:clamp(12px,1.5vw,22px) clamp(14px,2vw,28px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
+.timeline-item .label{font-size:clamp(12px,1.3vw,17px);font-weight:600;color:#00f0ff;margin-bottom:4px;letter-spacing:0.05em}
+.timeline-item p{font-size:clamp(11px,1.1vw,15px)}
+
+/* Highlight box */
+.highlight-box{padding:clamp(14px,2vw,26px);background:rgba(0,240,255,0.05);border:2px solid rgba(0,240,255,0.2);border-radius:14px;text-align:center;margin-top:clamp(14px,2vw,26px)}
+.highlight-box h3{color:#00f0ff;margin-bottom:6px;font-size:clamp(16px,1.8vw,22px)}
+.highlight-box p{font-size:clamp(13px,1.3vw,17px);max-width:800px;margin:0 auto}
+
+/* Contact */
 .page-contact{background:linear-gradient(135deg,#0a0a1a,#0f0f2a,#1a0a2e);text-align:center;align-items:center}
-.page-contact .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,2.5vw,36px)}
-.contact-items{display:flex;flex-direction:column;gap:clamp(8px,1.2vw,16px);width:100%;max-width:500px}
-.contact-item{display:flex;align-items:center;justify-content:center;gap:12px;padding:clamp(12px,1.8vw,24px) clamp(16px,2.5vw,34px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
-.contact-item a{color:#f0f0f8;text-decoration:none;font-size:clamp(16px,1.8vw,22px);font-weight:500}
-.contact-item .ic{font-size:clamp(18px,2vw,26px)}
-.footer-text{font-size:clamp(10px,1vw,13px);color:rgba(255,255,255,0.3);margin-top:clamp(10px,1.5vw,20px)}
+.page-contact .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,2vw,28px)}
+.contact-items{display:flex;flex-direction:column;gap:clamp(6px,1vw,12px);width:100%;max-width:500px}
+.contact-item{display:flex;align-items:center;justify-content:center;gap:12px;padding:clamp(10px,1.5vw,20px) clamp(14px,2vw,28px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.contact-item a{color:#f0f0f8;text-decoration:none;font-size:clamp(14px,1.5vw,20px);font-weight:500}
+.contact-item .ic{font-size:clamp(16px,1.8vw,22px)}
+.footer-text{font-size:clamp(9px,0.8vw,12px);color:rgba(255,255,255,0.3);margin-top:clamp(8px,1.2vw,16px)}
 .download-bar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 24px;display:flex;justify-content:space-between;align-items:center}
 .download-bar .brand{font-weight:700;font-size:16px}
 .download-bar .brand span{background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#00f0ff,#7c3aed);color:#fff;border:none;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.3s}
 .download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,240,255,0.3)}
-@media print{.download-bar{display:none!important}body{background:#0a0a1a}.page{margin:0;padding:4% 5%;width:100%;height:100vh;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:landscape;margin:0}}
-@media(max-width:768px){.page{padding:6% 4%;height:auto;min-height:100vh}.grid-3,.grid-2,.cost-grid{grid-template-columns:1fr}.cover-title .line{font-size:32px}.download-bar{flex-direction:column;gap:8px;padding:8px 12px}}
+@media print{.download-bar{display:none!important}body{background:#0a0a1a}.page{margin:0;padding:3% 4%;width:100%;height:100vh;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:landscape;margin:0}}
+@media(max-width:768px){.page{padding:5% 3%;height:auto;min-height:100vh}.grid-3,.grid-2,.cost-grid{grid-template-columns:1fr}.cover-title .line{font-size:28px}.download-bar{flex-direction:column;gap:8px;padding:8px 12px}}
 </style>
 </head>
 <body>
@@ -95,7 +108,7 @@ p{font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,0.75);line-height:1.6}
 <button class="download-btn" onclick="window.print()"><span>⬇</span> Descargar PDF</button>
 </div>
 
-<!-- 1: PORTADA -->
+<!-- ===== SLIDE 1: PORTADA ===== -->
 <div class="page page-cover">
 <div class="page-inner">
 <div class="cover-logo"><img src="GULIN_LOGO_4.jpeg" alt="GuLIN"></div>
@@ -104,20 +117,20 @@ p{font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,0.75);line-height:1.6}
 <div class="cover-badge"><span class="dot"></span><span>Documento Estratégico - Junio 2026</span></div>
 </div></div>
 
-<!-- 2: EL CONTEXTO DE PREVIRED -->
+<!-- ===== SLIDE 2: CONTEXTO PREVIRED ===== -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>El Contexto de <span class="accent">Previred</span></h2>
-<p style="text-align:center;max-width:1000px;margin:0 auto clamp(24px,3.5vw,48px)">Previred opera infraestructura crítica para el sistema de pensiones chileno. Sus necesidades de gobernanza TI van mucho más allá de la gestión de bases de datos.</p>
+<p style="text-align:center;max-width:1000px;margin:0 auto clamp(20px,2.5vw,36px)">Previred opera infraestructura crítica para el sistema de pensiones chileno. Sus necesidades de gobernanza TI van mucho más allá de la gestión de bases de datos.</p>
 <div class="grid-3">
 <div class="card-center"><div class="num-lg">+15M</div><div class="lbl-sm">de afiliados al sistema de pensiones dependen de la continuidad operativa de Previred</div></div>
 <div class="card-center"><div class="num-lg">99.99%</div><div class="lbl-sm">de disponibilidad requerida por la Superintendencia de Pensiones para sistemas críticos</div></div>
 <div class="card-center"><div class="num-lg">24/7</div><div class="lbl-sm">operación ininterrumpida con estrictos requisitos de auditoría y compliance regulatorio</div></div>
 </div>
-<p style="text-align:center;margin-top:clamp(20px,3vw,40px);font-weight:500;color:rgba(255,255,255,0.6);font-size:clamp(14px,1.5vw,19px)">Bytebase resuelve solo <strong style="color:#ef4444">una parte</strong> del problema. GuLIN aborda <strong style="color:#00f0ff">toda la operación TI</strong>.</p>
+<p style="text-align:center;margin-top:clamp(16px,2vw,32px);font-weight:500;color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,17px)">Bytebase resuelve solo <strong style="color:#ef4444">una parte</strong> del problema. GuLIN aborda <strong style="color:#00f0ff">toda la operación TI</strong>.</p>
 </div></div>
 
-<!-- 3: COMPARATIVA DETALLADA -->
+<!-- ===== SLIDE 3: COMPARATIVA DETALLADA ===== -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Comparativa: GuLIN vs <span class="accent">Bytebase</span></h2>
@@ -140,11 +153,11 @@ p{font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,0.75);line-height:1.6}
 </table>
 </div></div>
 
-<!-- 4: COSTOS -->
+<!-- ===== SLIDE 4: COSTOS ===== -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>Comparativa de <span class="accent">Costos</span></h2>
-<p style="text-align:center;max-width:900px;margin:0 auto clamp(24px,3.5vw,48px)">El costo real de Bytebase se multiplica al necesitar herramientas adicionales para cubrir todas las necesidades de Previred.</p>
+<p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">El costo real de Bytebase se multiplica al necesitar herramientas adicionales para cubrir todas las necesidades de Previred.</p>
 <div class="cost-grid">
 <div class="cost-card bytebase">
 <div class="name" style="color:#ef4444">Bytebase</div>
@@ -169,11 +182,11 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 5: LO QUE BYTEBASE NO RESUELVE -->
+<!-- ===== SLIDE 5: LO QUE BYTEBASE NO RESUELVE ===== -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Lo Que Bytebase <span class="accent">No Resuelve</span></h2>
-<p style="text-align:center;max-width:900px;margin:0 auto clamp(24px,3.5vw,48px)">Bytebase es excelente para gestión de cambios en bases de datos, pero Previred necesita mucho más para su gobernanza TI.</p>
+<p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">Bytebase es excelente para gestión de cambios en bases de datos, pero Previred necesita mucho más para su gobernanza TI.</p>
 <div class="grid-3">
 <div class="benefit-card" style="--c:#ef4444">
 <h3>🔴 Ciberseguridad</h3>
@@ -193,11 +206,11 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 6: LO QUE GuLIN SÍ RESUELVE -->
+<!-- ===== SLIDE 6: LO QUE GuLIN SÍ RESUELVE ===== -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>Lo Que GuLIN <span class="accent">Sí Resuelve</span></h2>
-<p style="text-align:center;max-width:900px;margin:0 auto clamp(24px,3.5vw,48px)">GuLIN aborda integralmente todas las dimensiones que Previred necesita para su gobernanza TI.</p>
+<p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">GuLIN aborda integralmente todas las dimensiones que Previred necesita para su gobernanza TI.</p>
 <div class="grid-3">
 <div class="benefit-card" style="--c:#00f0ff">
 <h3>🔵 Governance TI Completo</h3>
@@ -217,20 +230,20 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 7: COSTO TOTAL vs BYTEBASE + HERRAMIENTAS -->
+<!-- ===== SLIDE 7: COSTO TOTAL STACK ===== -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Costo Total: Bytebase Stack vs <span class="accent">GuLIN Unificado</span></h2>
 <table class="compare-table">
 <thead><tr><th>Herramienta</th><th>Bytebase + Stack Tradicional</th><th>GuLIN Enterprise</th></tr></thead>
 <tbody>
-<tr><td class="at">Gestión DB</td><td class="lg">Bytebase: $20/user/mes</td><td class="gl" rowspan="6" style="vertical-align:middle;text-align:center;font-size:clamp(20px,2.5vw,34px);color:#00f0ff;font-weight:700">$35/user/mes<br><span style="font-size:clamp(12px,1.3vw,16px);color:rgba(255,255,255,0.4);font-weight:400">Todo incluido</span></td></tr>
+<tr><td class="at">Gestión DB</td><td class="lg">Bytebase: $20/user/mes</td><td class="gl" rowspan="6" style="vertical-align:middle;text-align:center;font-size:clamp(18px,2.2vw,30px);color:#00f0ff;font-weight:700">$35/user/mes<br><span style="font-size:clamp(10px,1vw,14px);color:rgba(255,255,255,0.4);font-weight:400">Todo incluido</span></td></tr>
 <tr><td class="at">Monitoreo</td><td class="lg">Datadog/Grafana: $15-25/user/mes</td></tr>
 <tr><td class="at">Ciberseguridad</td><td class="lg">Wazuh/Splunk: $10-20/user/mes</td></tr>
 <tr><td class="at">ITAM</td><td class="lg">ServiceNow/Snipe-IT: $15-25/user/mes</td></tr>
 <tr><td class="at">Continuidad</td><td class="lg">Zerto/Veeam: $10-15/user/mes</td></tr>
 <tr><td class="at">Auditoría</td><td class="lg">Herramienta adicional: $10-15/user/mes</td></tr>
-<tr><td class="at" style="font-weight:800;color:#f0f0f8">TOTAL</td><td class="lg" style="font-weight:700;color:#ef4444;font-size:clamp(18px,2.2vw,28px)">$80 - $120/user/mes</td><td class="gl" style="font-weight:700;color:#06d6a0;font-size:clamp(18px,2.2vw,28px)">$35/user/mes</td></tr>
+<tr><td class="at" style="font-weight:800;color:#f0f0f8">TOTAL</td><td class="lg" style="font-weight:700;color:#ef4444;font-size:clamp(16px,2vw,24px)">$80 - $120/user/mes</td><td class="gl" style="font-weight:700;color:#06d6a0;font-size:clamp(16px,2vw,24px)">$35/user/mes</td></tr>
 </tbody>
 </table>
 <div class="highlight-box">
@@ -239,13 +252,13 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 8: BENEFICIOS ADICIONALES -->
+<!-- ===== SLIDE 8: BENEFICIOS EXCLUSIVOS ===== -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>Beneficios Exclusivos <span class="accent">GuLIN para Previred</span></h2>
 <div class="grid-2">
 <div>
-<div class="benefit-card" style="--c:#00f0ff;margin-bottom:clamp(16px,2.5vw,32px)">
+<div class="benefit-card" style="--c:#00f0ff;margin-bottom:clamp(14px,2vw,28px)">
 <h3>🇨🇱 Soporte Local en Chile</h3>
 <p>Ingenieros locales con conocimiento del mercado chileno y regulatorio. Implementación presencial en Santiago. Soporte en horario chileno con SLA de 4 horas para incidentes críticos.</p>
 </div>
@@ -255,7 +268,7 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div>
 <div>
-<div class="benefit-card" style="--c:#06d6a0;margin-bottom:clamp(16px,2.5vw,32px)">
+<div class="benefit-card" style="--c:#06d6a0;margin-bottom:clamp(14px,2vw,28px)">
 <h3>🔒 Seguridad de Nivel Enterprise</h3>
 <p>Cifrado AES-256, OAuth 2.0, TLS 1.3, SOC2, ISO 27001. Aislamiento absoluto de datos. Cumplimiento con la nueva Ley de Datos Personales chilena (Ley 21.719).</p>
 </div>
@@ -267,7 +280,7 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 9: ROADMAP DE IMPLEMENTACIÓN -->
+<!-- ===== SLIDE 9: ROADMAP ===== -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Roadmap de Implementación <span class="accent">para Previred</span></h2>
@@ -279,32 +292,32 @@ Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complemen
 </div>
 </div></div>
 
-<!-- 10: CONCLUSIÓN -->
+<!-- ===== SLIDE 10: CONCLUSION ===== -->
 <div class="page page-content">
 <div class="page-inner">
-<h2>¿Por Qué GuLIN es la Mejor <span class="accent">Opción para Previred?</span></h2>
+<h2>Por Que GuLIN es la Mejor <span class="accent">Opcion para Previred?</span></h2>
 <div class="grid-3">
-<div class="card-center"><div class="num-lg">1</div><div class="lbl-sm"><strong style="color:#00f0ff">Bytebase</strong> es una herramienta especializada en gestión de bases de datos. <strong style="color:#ef4444">No cubre</strong> ciberseguridad, monitoreo, ITAM, continuidad ni cumplimiento regulatorio chileno.</div></div>
+<div class="card-center"><div class="num-lg">1</div><div class="lbl-sm"><strong style="color:#00f0ff">Bytebase</strong> es una herramienta especializada en gestion de bases de datos. <strong style="color:#ef4444">No cubre</strong> ciberseguridad, monitoreo, ITAM, continuidad ni cumplimiento regulatorio chileno.</div></div>
 <div class="card-center"><div class="num-lg">2</div><div class="lbl-sm"><strong style="color:#00f0ff">GuLIN Enterprise</strong> es una <strong style="color:#06d6a0">plataforma unificada</strong> que aborda todas las dimensiones de gobernanza TI que Previred necesita, con soporte local y cumplimiento regulatorio chileno.</div></div>
 <div class="card-center"><div class="num-lg">3</div><div class="lbl-sm"><strong style="color:#00f0ff">Costo total</strong> con Bytebase + herramientas complementarias: <strong style="color:#ef4444">$80-$120/user/mes</strong>. Con GuLIN: <strong style="color:#06d6a0">$35/user/mes</strong>. Ahorro de hasta <strong style="color:#f59e0b">65%</strong>.</div></div>
 </div>
 <div class="highlight-box">
-<h3>🎯 Decisión Estratégica para Previred</h3>
-<p>Invertir en Bytebase significa comprometerse con <strong style="color:#ef4444">5+ integraciones</strong>, <strong style="color:#ef4444">múltiples proveedores</strong> y <strong style="color:#ef4444">brechas de seguridad</strong> no cubiertas. GuLIN ofrece <strong style="color:#00f0ff">una plataforma, un proveedor, una visión unificada</strong> de toda la operación TI, con cumplimiento regulatorio chileno incluido.</p>
+<h3>Decision Estrategica para Previred</h3>
+<p>Invertir en Bytebase significa comprometerse con <strong style="color:#ef4444">5+ integraciones</strong>, <strong style="color:#ef4444">multiples proveedores</strong> y <strong style="color:#ef4444">brechas de seguridad</strong> no cubiertas. GuLIN ofrece <strong style="color:#00f0ff">una plataforma, un proveedor, una vision unificada</strong> de toda la operacion TI, con cumplimiento regulatorio chileno incluido.</p>
 </div>
 </div></div>
 
-<!-- 11: CONTACTO -->
+<!-- ===== SLIDE 11: CONTACTO ===== -->
 <div class="page page-contact">
 <div class="page-inner">
-<h2>¿Damos el <span class="accent">Siguiente Paso?</span></h2>
-<p style="max-width:600px;text-align:center">Agende hoy una demostración técnica personalizada para Previred. Le mostraremos cómo GuLIN se integra con su infraestructura actual y cumple con todos los requisitos regulatorios chilenos.</p>
+<h2>Damos el <span class="accent">Siguiente Paso?</span></h2>
+<p style="max-width:600px;text-align:center">Agende hoy una demostracion tecnica personalizada para Previred. Le mostraremos como GuLIN se integra con su infraestructura actual y cumple con todos los requisitos regulatorios chilenos.</p>
 <div class="contact-items">
 <div class="contact-item"><span class="ic">✉</span><a href="mailto:previred@gulin.io">previred@gulin.io</a></div>
 <div class="contact-item"><span class="ic">🌐</span><a href="https://www.gulin.io/previred" target="_blank">www.gulin.io/previred</a></div>
 <div class="contact-item"><span class="ic">📞</span><a href="tel:+56223456789">+56 2 2345 6789</a></div>
 </div>
-<p class="footer-text">© 2026 GuLIN Enterprise. Documento comparativo confidencial para Previred. Todos los derechos reservados.</p>
+<p class="footer-text">(c) 2026 GuLIN Enterprise. Documento comparativo confidencial para Previred. Todos los derechos reservados.</p>
 </div></div>
 
 <script>function downloadPDF(){window.print()}</script>
