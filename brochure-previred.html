@@ -31,8 +31,6 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 .card-center{text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:clamp(16px,2.5vw,32px)}
 .num-lg{font-size:clamp(32px,4vw,52px);font-weight:800;background:linear-gradient(135deg,#00f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .lbl-sm{font-size:clamp(12px,1.2vw,16px);color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.5}
-
-/* Tabla comparativa mejorada */
 .compare-table{width:100%;border-collapse:collapse;font-size:clamp(12px,1.2vw,16px)}
 .compare-table th{padding:clamp(10px,1.2vw,18px);text-align:left;font-weight:600;font-size:clamp(10px,1vw,13px);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid rgba(255,255,255,0.08)}
 .compare-table th:nth-child(1){color:rgba(255,255,255,0.4);width:22%}
@@ -45,16 +43,12 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 .compare-table .gl{color:#f0f0f8;font-weight:500;font-size:clamp(11px,1.1vw,15px)}
 .compare-table .check{color:#06d6a0;font-weight:700;font-size:clamp(14px,1.4vw,18px)}
 .compare-table .cross{color:#ef4444;opacity:0.6;font-size:clamp(14px,1.4vw,18px)}
-
-/* Benefit cards */
 .benefit-card{border-radius:14px;padding:clamp(16px,2.5vw,32px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:4px solid var(--c,#00f0ff)}
 .benefit-card h3{font-size:clamp(16px,1.8vw,22px);font-weight:700;margin-bottom:10px;color:var(--c,#00f0ff)}
 .benefit-card p{font-size:clamp(12px,1.2vw,16px);margin-bottom:12px}
 .benefit-card ul{list-style:none}
 .benefit-card ul li{font-size:clamp(11px,1.1vw,15px);color:rgba(255,255,255,0.4);padding-left:16px;position:relative;margin-bottom:5px}
-.benefit-card ul li::before{content:'→';position:absolute;left:0;color:var(--c,#00f0ff)}
-
-/* Costos */
+.benefit-card ul li::before{content:'\2192';position:absolute;left:0;color:var(--c,#00f0ff)}
 .cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px)}
 .cost-card{padding:clamp(16px,2.5vw,32px);border-radius:14px;text-align:center}
 .cost-card.bytebase{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2)}
@@ -66,8 +60,6 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 .cost-card .desc{font-size:clamp(11px,1.1vw,15px);color:rgba(255,255,255,0.5);margin-bottom:clamp(12px,2vw,24px)}
 .cost-card .savings{display:inline-block;padding:6px 16px;border-radius:50px;font-size:clamp(12px,1.2vw,16px);font-weight:600}
 .cost-card .savings.big{background:rgba(6,214,160,0.15);color:#06d6a0;border:1px solid rgba(6,214,160,0.3)}
-
-/* Timeline */
 .timeline{position:relative;display:flex;flex-direction:column;gap:clamp(8px,1.2vw,16px);padding-left:clamp(16px,2.5vw,32px);max-width:900px;margin:0 auto}
 .timeline::before{content:'';position:absolute;left:clamp(4px,0.6vw,8px);top:0;bottom:0;width:3px;background:linear-gradient(180deg,#00f0ff,#7c3aed);opacity:0.3}
 .timeline-item{position:relative;padding-left:clamp(14px,2vw,28px)}
@@ -79,13 +71,9 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 .timeline-item .content{padding:clamp(12px,1.5vw,22px) clamp(14px,2vw,28px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px}
 .timeline-item .label{font-size:clamp(12px,1.3vw,17px);font-weight:600;color:#00f0ff;margin-bottom:4px;letter-spacing:0.05em}
 .timeline-item p{font-size:clamp(11px,1.1vw,15px)}
-
-/* Highlight box */
 .highlight-box{padding:clamp(14px,2vw,26px);background:rgba(0,240,255,0.05);border:2px solid rgba(0,240,255,0.2);border-radius:14px;text-align:center;margin-top:clamp(14px,2vw,26px)}
 .highlight-box h3{color:#00f0ff;margin-bottom:6px;font-size:clamp(16px,1.8vw,22px)}
 .highlight-box p{font-size:clamp(13px,1.3vw,17px);max-width:800px;margin:0 auto}
-
-/* Contact */
 .page-contact{background:linear-gradient(135deg,#0a0a1a,#0f0f2a,#1a0a2e);text-align:center;align-items:center}
 .page-contact .page-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,2vw,28px)}
 .contact-items{display:flex;flex-direction:column;gap:clamp(6px,1vw,12px);width:100%;max-width:500px}
@@ -105,55 +93,55 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 <body>
 <div class="download-bar">
 <div class="brand">GuLIN <span>vs Bytebase</span></div>
-<button class="download-btn" onclick="window.print()"><span>⬇</span> Descargar PDF</button>
+<button class="download-btn" onclick="window.print()"><span>&#11015;</span> Descargar PDF</button>
 </div>
 
-<!-- ===== SLIDE 1: PORTADA ===== -->
+<!-- SLIDE 1: PORTADA -->
 <div class="page page-cover">
 <div class="page-inner">
 <div class="cover-logo"><img src="GULIN_LOGO_4.jpeg" alt="GuLIN"></div>
 <div class="cover-title"><div class="line">GuLIN Enterprise</div><div class="line accent">vs Bytebase</div></div>
-<p class="cover-subtitle">Análisis Comparativo para Previred: ¿Por qué GuLIN es la mejor alternativa frente a Bytebase para gobernanza, seguridad y operaciones de TI?</p>
-<div class="cover-badge"><span class="dot"></span><span>Documento Estratégico - Junio 2026</span></div>
+<p class="cover-subtitle">An&aacute;lisis Comparativo para Previred: &iquest;Por qu&eacute; GuLIN es la mejor alternativa frente a Bytebase para gobernanza, seguridad y operaciones de TI?</p>
+<div class="cover-badge"><span class="dot"></span><span>Documento Estrat&eacute;gico - Junio 2026</span></div>
 </div></div>
 
-<!-- ===== SLIDE 2: CONTEXTO PREVIRED ===== -->
+<!-- SLIDE 2: CONTEXTO PREVIRED -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>El Contexto de <span class="accent">Previred</span></h2>
-<p style="text-align:center;max-width:1000px;margin:0 auto clamp(20px,2.5vw,36px)">Previred opera infraestructura crítica para el sistema de pensiones chileno. Sus necesidades de gobernanza TI van mucho más allá de la gestión de bases de datos.</p>
+<p style="text-align:center;max-width:1000px;margin:0 auto clamp(20px,2.5vw,36px)">Previred opera infraestructura cr&iacute;tica para el sistema de pensiones chileno. Sus necesidades de gobernanza TI van mucho m&aacute;s all&aacute; de la gesti&oacute;n de bases de datos.</p>
 <div class="grid-3">
 <div class="card-center"><div class="num-lg">+15M</div><div class="lbl-sm">de afiliados al sistema de pensiones dependen de la continuidad operativa de Previred</div></div>
-<div class="card-center"><div class="num-lg">99.99%</div><div class="lbl-sm">de disponibilidad requerida por la Superintendencia de Pensiones para sistemas críticos</div></div>
-<div class="card-center"><div class="num-lg">24/7</div><div class="lbl-sm">operación ininterrumpida con estrictos requisitos de auditoría y compliance regulatorio</div></div>
+<div class="card-center"><div class="num-lg">99.99%</div><div class="lbl-sm">de disponibilidad requerida por la Superintendencia de Pensiones para sistemas cr&iacute;ticos</div></div>
+<div class="card-center"><div class="num-lg">24/7</div><div class="lbl-sm">operaci&oacute;n ininterrumpida con estrictos requisitos de auditor&iacute;a y compliance regulatorio</div></div>
 </div>
-<p style="text-align:center;margin-top:clamp(16px,2vw,32px);font-weight:500;color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,17px)">Bytebase resuelve solo <strong style="color:#ef4444">una parte</strong> del problema. GuLIN aborda <strong style="color:#00f0ff">toda la operación TI</strong>.</p>
+<p style="text-align:center;margin-top:clamp(16px,2vw,32px);font-weight:500;color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,17px)">Bytebase resuelve solo <strong style="color:#ef4444">una parte</strong> del problema. GuLIN aborda <strong style="color:#00f0ff">toda la operaci&oacute;n TI</strong>.</p>
 </div></div>
 
-<!-- ===== SLIDE 3: COMPARATIVA DETALLADA ===== -->
+<!-- SLIDE 3: COMPARATIVA DETALLADA -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Comparativa: GuLIN vs <span class="accent">Bytebase</span></h2>
 <table class="compare-table">
-<thead><tr><th>Dimensión</th><th>Bytebase</th><th>GuLIN Enterprise</th></tr></thead>
+<thead><tr><th>Dimensi&oacute;n</th><th>Bytebase</th><th>GuLIN Enterprise</th></tr></thead>
 <tbody>
-<tr><td class="at">Alcance</td><td class="lg">Solo gestión de bases de datos (schema migration, SQL review)</td><td class="gl">Plataforma completa: ciberseguridad, monitoreo, automatización, ITAM, governance</td></tr>
-<tr><td class="at">Cumplimiento SPensiones</td><td class="lg"><span class="cross">✗</span> No cubre requisitos regulatorios chilenos</td><td class="gl"><span class="check">✓</span> Adaptado a normativa chilena (Ley 19.628, Ley 21.719, SPensiones)</td></tr>
-<tr><td class="at">Audit Trail</td><td class="lg"><span class="check">✓</span> Solo para cambios en DB</td><td class="gl"><span class="check">✓</span> Trazabilidad completa: infraestructura, seguridad, cambios, accesos, datos</td></tr>
-<tr><td class="at">Monitoreo Infraestructura</td><td class="lg"><span class="cross">✗</span> No incluye</td><td class="gl"><span class="check">✓</span> Tiempo real: servidores, redes, contenedores, cloud híbrido</td></tr>
-<tr><td class="at">Ciberseguridad</td><td class="lg"><span class="cross">✗</span> No incluye</td><td class="gl"><span class="check">✓</span> Detección de amenazas, respuesta automatizada, análisis de vulnerabilidades</td></tr>
-<tr><td class="at">Gestión de Activos TI</td><td class="lg"><span class="cross">✗</span> No incluye</td><td class="gl"><span class="check">✓</span> ITAM completo: HW, SW, licencias, shadow IT, CMDB</td></tr>
-<tr><td class="at">Automatización</td><td class="lg"><span class="check">✓</span> Solo pipelines de DB</td><td class="gl"><span class="check">✓</span> Flujos sin código, orquestación multi-servicio, workflows inteligentes</td></tr>
-<tr><td class="at">Dashboard Unificado</td><td class="lg"><span class="cross">✗</span> Solo cambios en DB</td><td class="gl"><span class="check">✓</span> Telemetría consolidada: redes, apps, seguridad, costos cloud</td></tr>
-<tr><td class="at">Alertas Inteligentes</td><td class="lg"><span class="cross">✗</span> Solo notificaciones de cambios</td><td class="gl"><span class="check">✓</span> IA predictiva, correlación de eventos, reducción de falsos positivos</td></tr>
-<tr><td class="at">Business Continuity</td><td class="lg"><span class="cross">✗</span> No incluye</td><td class="gl"><span class="check">✓</span> DRP automatizado, RPO/RTO monitoreado, failover con validación</td></tr>
-<tr><td class="at">On-Premise / Nube Híbrida</td><td class="lg"><span class="check">✓</span> Self-hosted disponible</td><td class="gl"><span class="check">✓</span> On-Premise, Cloud, Híbrido con agentes ligeros</td></tr>
-<tr><td class="at">Soporte Local Chile</td><td class="lg"><span class="cross">✗</span> Soporte remoto global (USA/Asia)</td><td class="gl"><span class="check">✓</span> Soporte local en Chile, implementación presencial, ingenieros bilingües</td></tr>
+<tr><td class="at">Alcance</td><td class="lg">Solo gesti&oacute;n de bases de datos (schema migration, SQL review)</td><td class="gl">Plataforma completa: ciberseguridad, monitoreo, automatizaci&oacute;n, ITAM, governance</td></tr>
+<tr><td class="at">Cumplimiento SPensiones</td><td class="lg"><span class="cross">&#10007;</span> No cubre requisitos regulatorios chilenos</td><td class="gl"><span class="check">&#10003;</span> Adaptado a normativa chilena (Ley 19.628, Ley 21.719, SPensiones)</td></tr>
+<tr><td class="at">Audit Trail</td><td class="lg"><span class="check">&#10003;</span> Solo para cambios en DB</td><td class="gl"><span class="check">&#10003;</span> Trazabilidad completa: infraestructura, seguridad, cambios, accesos, datos</td></tr>
+<tr><td class="at">Monitoreo Infraestructura</td><td class="lg"><span class="cross">&#10007;</span> No incluye</td><td class="gl"><span class="check">&#10003;</span> Tiempo real: servidores, redes, contenedores, cloud h&iacute;brido</td></tr>
+<tr><td class="at">Ciberseguridad</td><td class="lg"><span class="cross">&#10007;</span> No incluye</td><td class="gl"><span class="check">&#10003;</span> Detecci&oacute;n de amenazas, respuesta automatizada, an&aacute;lisis de vulnerabilidades</td></tr>
+<tr><td class="at">Gesti&oacute;n de Activos TI</td><td class="lg"><span class="cross">&#10007;</span> No incluye</td><td class="gl"><span class="check">&#10003;</span> ITAM completo: HW, SW, licencias, shadow IT, CMDB</td></tr>
+<tr><td class="at">Automatizaci&oacute;n</td><td class="lg"><span class="check">&#10003;</span> Solo pipelines de DB</td><td class="gl"><span class="check">&#10003;</span> Flujos sin c&oacute;digo, orquestaci&oacute;n multi-servicio, workflows inteligentes</td></tr>
+<tr><td class="at">Dashboard Unificado</td><td class="lg"><span class="cross">&#10007;</span> Solo cambios en DB</td><td class="gl"><span class="check">&#10003;</span> Telemetr&iacute;a consolidada: redes, apps, seguridad, costos cloud</td></tr>
+<tr><td class="at">Alertas Inteligentes</td><td class="lg"><span class="cross">&#10007;</span> Solo notificaciones de cambios</td><td class="gl"><span class="check">&#10003;</span> IA predictiva, correlaci&oacute;n de eventos, reducci&oacute;n de falsos positivos</td></tr>
+<tr><td class="at">Business Continuity</td><td class="lg"><span class="cross">&#10007;</span> No incluye</td><td class="gl"><span class="check">&#10003;</span> DRP automatizado, RPO/RTO monitoreado, failover con validaci&oacute;n</td></tr>
+<tr><td class="at">On-Premise / Nube H&iacute;brida</td><td class="lg"><span class="check">&#10003;</span> Self-hosted disponible</td><td class="gl"><span class="check">&#10003;</span> On-Premise, Cloud, H&iacute;brido con agentes ligeros</td></tr>
+<tr><td class="at">Soporte Local Chile</td><td class="lg"><span class="cross">&#10007;</span> Soporte remoto global (USA/Asia)</td><td class="gl"><span class="check">&#10003;</span> Soporte local en Chile, implementaci&oacute;n presencial, ingenieros biling&uuml;es</td></tr>
 </tbody>
 </table>
 </div></div>
 
-<!-- ===== SLIDE 4: COSTOS ===== -->
+<!-- SLIDE 4: COSTOS -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>Comparativa de <span class="accent">Costos</span></h2>
@@ -162,7 +150,7 @@ p{font-size:clamp(14px,1.5vw,19px);color:rgba(255,255,255,0.75);line-height:1.6}
 <div class="cost-card bytebase">
 <div class="name" style="color:#ef4444">Bytebase</div>
 <div class="price" style="color:#ef4444"><span class="currency">$</span>20<span class="period">/usuario/mes</span></div>
-<div class="desc">Solo gestión de bases de datos. Necesitas +5 herramientas adicionales para cubrir monitoreo, seguridad, ITAM, continuidad, etc.</div>
+<div class="desc">Solo gesti&oacute;n de bases de datos. Necesitas +5 herramientas adicionales para cubrir monitoreo, seguridad, ITAM, continuidad, etc.</div>
 <div class="savings" style="background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.2)">
 Costo real estimado: <strong>$80-$120/usuario/mes</strong> con herramientas complementarias
 </div>
@@ -170,154 +158,154 @@ Costo real estimado: <strong>$80-$120/usuario/mes</strong> con herramientas comp
 <div class="cost-card gulin">
 <div class="name" style="color:#00f0ff">GuLIN Enterprise</div>
 <div class="price" style="color:#00f0ff"><span class="currency">$</span>35<span class="period">/usuario/mes</span></div>
-<div class="desc">Plataforma todo-en-uno: monitoreo, seguridad, automatización, ITAM, governance, continuidad. Sin costos ocultos.</div>
+<div class="desc">Plataforma todo-en-uno: monitoreo, seguridad, automatizaci&oacute;n, ITAM, governance, continuidad. Sin costos ocultos.</div>
 <div class="savings big">
 Ahorro estimado: <strong>hasta 65%</strong> vs Bytebase + herramientas complementarias
 </div>
 </div>
 </div>
 <div class="highlight-box">
-<h3>💰 Ahorro Anual Estimado para Previred</h3>
-<p>Con un equipo de TI de 30 personas: Bytebase + herramientas complementarias = <strong style="color:#ef4444">$28,800 - $43,200 USD/año</strong> vs GuLIN Enterprise = <strong style="color:#06d6a0">$12,600 USD/año</strong>. <span class="accent-green">Ahorro de hasta $30,600 USD/año.</span></p>
+<h3>&#128176; Ahorro Anual Estimado para Previred</h3>
+<p>Con un equipo de TI de 30 personas: Bytebase + herramientas complementarias = <strong style="color:#ef4444">$28,800 - $43,200 USD/a&ntilde;o</strong> vs GuLIN Enterprise = <strong style="color:#06d6a0">$12,600 USD/a&ntilde;o</strong>. <span class="accent-green">Ahorro de hasta $30,600 USD/a&ntilde;o.</span></p>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 5: LO QUE BYTEBASE NO RESUELVE ===== -->
+<!-- SLIDE 5: LO QUE BYTEBASE NO RESUELVE -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Lo Que Bytebase <span class="accent">No Resuelve</span></h2>
-<p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">Bytebase es excelente para gestión de cambios en bases de datos, pero Previred necesita mucho más para su gobernanza TI.</p>
+<p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">Bytebase es excelente para gesti&oacute;n de cambios en bases de datos, pero Previred necesita mucho m&aacute;s para su gobernanza TI.</p>
 <div class="grid-3">
 <div class="benefit-card" style="--c:#ef4444">
-<h3>🔴 Ciberseguridad</h3>
-<p>Bytebase no detecta amenazas, no monitorea redes, no analiza vulnerabilidades. Previred necesita protección activa contra ciberataques.</p>
-<ul><li>Sin detección de intrusiones</li><li>Sin análisis de vulnerabilidades</li><li>Sin respuesta automatizada a incidentes</li></ul>
+<h3>&#128308; Ciberseguridad</h3>
+<p>Bytebase no detecta amenazas, no monitorea redes, no analiza vulnerabilidades. Previred necesita protecci&oacute;n activa contra ciberataques.</p>
+<ul><li>Sin detecci&oacute;n de intrusiones</li><li>Sin an&aacute;lisis de vulnerabilidades</li><li>Sin respuesta automatizada a incidentes</li></ul>
 </div>
 <div class="benefit-card" style="--c:#f59e0b">
-<h3>🟡 Monitoreo de Infraestructura</h3>
-<p>Bytebase no monitorea servidores, redes, contenedores ni cloud. Previred necesita visibilidad completa de su operación.</p>
-<ul><li>Sin telemetría de servidores</li><li>Sin monitoreo de redes</li><li>Sin dashboard unificado</li></ul>
+<h3>&#128993; Monitoreo de Infraestructura</h3>
+<p>Bytebase no monitorea servidores, redes, contenedores ni cloud. Previred necesita visibilidad completa de su operaci&oacute;n.</p>
+<ul><li>Sin telemetr&iacute;a de servidores</li><li>Sin monitoreo de redes</li><li>Sin dashboard unificado</li></ul>
 </div>
 <div class="benefit-card" style="--c:#ef4444">
-<h3>🔴 Cumplimiento Regulatorio Chile</h3>
-<p>Bytebase no está adaptado a la normativa chilena. Previred debe cumplir con SPensiones, CMF y Ley de Datos Personales.</p>
+<h3>&#128308; Cumplimiento Regulatorio Chile</h3>
+<p>Bytebase no est&aacute; adaptado a la normativa chilena. Previred debe cumplir con SPensiones, CMF y Ley de Datos Personales.</p>
 <ul><li>Sin reportes SPensiones</li><li>Sin cumplimiento Ley 19.628/21.719</li><li>Sin trazabilidad regulatoria local</li></ul>
 </div>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 6: LO QUE GuLIN SÍ RESUELVE ===== -->
+<!-- SLIDE 6: LO QUE GuLIN S&Iacute; RESUELVE -->
 <div class="page page-content">
 <div class="page-inner">
-<h2>Lo Que GuLIN <span class="accent">Sí Resuelve</span></h2>
+<h2>Lo Que GuLIN <span class="accent">S&iacute; Resuelve</span></h2>
 <p style="text-align:center;max-width:900px;margin:0 auto clamp(20px,2.5vw,36px)">GuLIN aborda integralmente todas las dimensiones que Previred necesita para su gobernanza TI.</p>
 <div class="grid-3">
 <div class="benefit-card" style="--c:#00f0ff">
-<h3>🔵 Governance TI Completo</h3>
-<p>Marco de gobierno alineado con COBIT 2019, ITIL 4, ISO 38500. Políticas, controles y reportes automatizados.</p>
-<ul><li>Matriz de riesgos automatizada</li><li>Segregación de funciones (SoD)</li><li>Workflows de aprobación multi-nivel</li></ul>
+<h3>&#128309; Governance TI Completo</h3>
+<p>Marco de gobierno alineado con COBIT 2019, ITIL 4, ISO 38500. Pol&iacute;ticas, controles y reportes automatizados.</p>
+<ul><li>Matriz de riesgos automatizada</li><li>Segregaci&oacute;n de funciones (SoD)</li><li>Workflows de aprobaci&oacute;n multi-nivel</li></ul>
 </div>
 <div class="benefit-card" style="--c:#7c3aed">
-<h3>🟣 Cumplimiento Regulatorio</h3>
-<p>Adaptado a la normativa chilena: SPensiones, CMF, Ley 19.628, Ley 21.719. Reportes automáticos para auditorías.</p>
-<ul><li>Reportes SPensiones automatizados</li><li>Clasificación de datos sensibles</li><li>Pistas de auditoría inmutables</li></ul>
+<h3>&#128683; Cumplimiento Regulatorio</h3>
+<p>Adaptado a la normativa chilena: SPensiones, CMF, Ley 19.628, Ley 21.719. Reportes autom&aacute;ticos para auditor&iacute;as.</p>
+<ul><li>Reportes SPensiones automatizados</li><li>Clasificaci&oacute;n de datos sensibles</li><li>Pistas de auditor&iacute;a inmutables</li></ul>
 </div>
 <div class="benefit-card" style="--c:#06d6a0">
-<h3>🟢 Plataforma Unificada</h3>
-<p>Una sola herramienta para monitoreo, seguridad, automatización, ITAM, continuidad y governance. Sin silos.</p>
-<ul><li>Dashboard unificado en tiempo real</li><li>Alertas inteligentes con IA predictiva</li><li>Reducción del 70% de falsos positivos</li></ul>
+<h3>&#128994; Plataforma Unificada</h3>
+<p>Una sola herramienta para monitoreo, seguridad, automatizaci&oacute;n, ITAM, continuidad y governance. Sin silos.</p>
+<ul><li>Dashboard unificado en tiempo real</li><li>Alertas inteligentes con IA predictiva</li><li>Reducci&oacute;n del 70% de falsos positivos</li></ul>
 </div>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 7: COSTO TOTAL STACK ===== -->
+<!-- SLIDE 7: COSTO TOTAL STACK -->
 <div class="page page-content-alt">
 <div class="page-inner">
 <h2>Costo Total: Bytebase Stack vs <span class="accent">GuLIN Unificado</span></h2>
 <table class="compare-table">
 <thead><tr><th>Herramienta</th><th>Bytebase + Stack Tradicional</th><th>GuLIN Enterprise</th></tr></thead>
 <tbody>
-<tr><td class="at">Gestión DB</td><td class="lg">Bytebase: $20/user/mes</td><td class="gl" rowspan="6" style="vertical-align:middle;text-align:center;font-size:clamp(18px,2.2vw,30px);color:#00f0ff;font-weight:700">$35/user/mes<br><span style="font-size:clamp(10px,1vw,14px);color:rgba(255,255,255,0.4);font-weight:400">Todo incluido</span></td></tr>
+<tr><td class="at">Gesti&oacute;n DB</td><td class="lg">Bytebase: $20/user/mes</td><td class="gl" rowspan="6" style="vertical-align:middle;text-align:center;font-size:clamp(18px,2.2vw,30px);color:#00f0ff;font-weight:700">$35/user/mes<br><span style="font-size:clamp(10px,1vw,14px);color:rgba(255,255,255,0.4);font-weight:400">Todo incluido</span></td></tr>
 <tr><td class="at">Monitoreo</td><td class="lg">Datadog/Grafana: $15-25/user/mes</td></tr>
 <tr><td class="at">Ciberseguridad</td><td class="lg">Wazuh/Splunk: $10-20/user/mes</td></tr>
 <tr><td class="at">ITAM</td><td class="lg">ServiceNow/Snipe-IT: $15-25/user/mes</td></tr>
 <tr><td class="at">Continuidad</td><td class="lg">Zerto/Veeam: $10-15/user/mes</td></tr>
-<tr><td class="at">Auditoría</td><td class="lg">Herramienta adicional: $10-15/user/mes</td></tr>
+<tr><td class="at">Auditor&iacute;a</td><td class="lg">Herramienta adicional: $10-15/user/mes</td></tr>
 <tr><td class="at" style="font-weight:800;color:#f0f0f8">TOTAL</td><td class="lg" style="font-weight:700;color:#ef4444;font-size:clamp(16px,2vw,24px)">$80 - $120/user/mes</td><td class="gl" style="font-weight:700;color:#06d6a0;font-size:clamp(16px,2vw,24px)">$35/user/mes</td></tr>
 </tbody>
 </table>
 <div class="highlight-box">
-<h3>🔑 Diferenciador Clave para Previred</h3>
-<p>Con Bytebase necesitas integrar <strong style="color:#ef4444">5+ herramientas</strong> de distintos proveedores. GuLIN te da <strong style="color:#00f0ff">una plataforma unificada</strong> con integración nativa, soporte local en Chile y cumplimiento regulatorio chileno incluido.</p>
+<h3>&#128273; Diferenciador Clave para Previred</h3>
+<p>Con Bytebase necesitas integrar <strong style="color:#ef4444">5+ herramientas</strong> de distintos proveedores. GuLIN te da <strong style="color:#00f0ff">una plataforma unificada</strong> con integraci&oacute;n nativa, soporte local en Chile y cumplimiento regulatorio chileno incluido.</p>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 8: BENEFICIOS EXCLUSIVOS ===== -->
+<!-- SLIDE 8: BENEFICIOS EXCLUSIVOS -->
 <div class="page page-content">
 <div class="page-inner">
 <h2>Beneficios Exclusivos <span class="accent">GuLIN para Previred</span></h2>
 <div class="grid-2">
 <div>
 <div class="benefit-card" style="--c:#00f0ff;margin-bottom:clamp(14px,2vw,28px)">
-<h3>🇨🇱 Soporte Local en Chile</h3>
-<p>Ingenieros locales con conocimiento del mercado chileno y regulatorio. Implementación presencial en Santiago. Soporte en horario chileno con SLA de 4 horas para incidentes críticos.</p>
+<h3>&#127474;&#127485; Soporte Local en Chile</h3>
+<p>Ingenieros locales con conocimiento del mercado chileno y regulatorio. Implementaci&oacute;n presencial en Santiago. Soporte en horario chileno con SLA de 4 horas para incidentes cr&iacute;ticos.</p>
 </div>
 <div class="benefit-card" style="--c:#7c3aed">
-<h3>📊 Reporting Ejecutivo Automatizado</h3>
-<p>Dashboards para CIO, CISO y Comité de Directores. Reportes automáticos de cumplimiento SPensiones, estado de riesgos, KPIs de governance y ahorro de costos.</p>
+<h3>&#128202; Reporting Ejecutivo Automatizado</h3>
+<p>Dashboards para CIO, CISO y Comit&eacute; de Directores. Reportes autom&aacute;ticos de cumplimiento SPensiones, estado de riesgos, KPIs de governance y ahorro de costos.</p>
 </div>
 </div>
 <div>
 <div class="benefit-card" style="--c:#06d6a0;margin-bottom:clamp(14px,2vw,28px)">
-<h3>🔒 Seguridad de Nivel Enterprise</h3>
+<h3>&#128274; Seguridad de Nivel Enterprise</h3>
 <p>Cifrado AES-256, OAuth 2.0, TLS 1.3, SOC2, ISO 27001. Aislamiento absoluto de datos. Cumplimiento con la nueva Ley de Datos Personales chilena (Ley 21.719).</p>
 </div>
 <div class="benefit-card" style="--c:#f59e0b">
-<h3>⚡ Implementación en 1 Semana</h3>
-<p>Bytebase requiere meses de integración con otras herramientas. GuLIN se implementa en menos de 7 días con agentes ligeros no invasivos. Resultados visibles desde el día 1.</p>
+<h3>&#9889; Implementaci&oacute;n en 1 Semana</h3>
+<p>Bytebase requiere meses de integraci&oacute;n con otras herramientas. GuLIN se implementa en menos de 7 d&iacute;as con agentes ligeros no invasivos. Resultados visibles desde el d&iacute;a 1.</p>
 </div>
 </div>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 9: ROADMAP ===== -->
+<!-- SLIDE 9: ROADMAP -->
 <div class="page page-content-alt">
 <div class="page-inner">
-<h2>Roadmap de Implementación <span class="accent">para Previred</span></h2>
+<h2>Roadmap de Implementaci&oacute;n <span class="accent">para Previred</span></h2>
 <div class="timeline">
-<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 1: Diagnóstico y Despliegue</div><p>Auditoría inicial de infraestructura, identificación de activos críticos, despliegue de agentes ligeros GuLIN en servidores on-premise y cloud. Configuración inicial de políticas de governance.</p></div></div>
-<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 2: Integración y Automatización</div><p>Conexión con sistemas existentes (bases de datos, monitoreo actual, SIEM). Configuración de flujos de aprobación multi-nivel. Integración con ServiceNow/Jira para gestión de cambios.</p></div></div>
-<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 3: Cumplimiento y Reportes</div><p>Configuración de reportes automáticos para SPensiones, CMF y auditorías internas. Implementación de pistas de auditoría inmutables. Clasificación de datos sensibles según Ley 21.719.</p></div></div>
-<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 4: Go-Live y Capacitación</div><p>Pruebas de estrés, validación de continuidad operativa (DRP), capacitación a equipos de TI y seguridad. Entrega de dashboards ejecutivos. Inicio de operación con soporte local 24/7.</p></div></div>
+<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 1: Diagn&oacute;stico y Despliegue</div><p>Auditor&iacute;a inicial de infraestructura, identificaci&oacute;n de activos cr&iacute;ticos, despliegue de agentes ligeros GuLIN en servidores on-premise y cloud. Configuraci&oacute;n inicial de pol&iacute;ticas de governance.</p></div></div>
+<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 2: Integraci&oacute;n y Automatizaci&oacute;n</div><p>Conexi&oacute;n con sistemas existentes (bases de datos, monitoreo actual, SIEM). Configuraci&oacute;n de flujos de aprobaci&oacute;n multi-nivel. Integraci&oacute;n con ServiceNow/Jira para gesti&oacute;n de cambios.</p></div></div>
+<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 3: Cumplimiento y Reportes</div><p>Configuraci&oacute;n de reportes autom&aacute;ticos para SPensiones, CMF y auditor&iacute;as internas. Implementaci&oacute;n de pistas de auditor&iacute;a inmutables. Clasificaci&oacute;n de datos sensibles seg&uacute;n Ley 21.719.</p></div></div>
+<div class="timeline-item"><div class="dot"></div><div class="content"><div class="label">Semana 4: Go-Live y Capacitaci&oacute;n</div><p>Pruebas de estr&eacute;s, validaci&oacute;n de continuidad operativa (DRP), capacitaci&oacute;n a equipos de TI y seguridad. Entrega de dashboards ejecutivos. Inicio de operaci&oacute;n con soporte local 24/7.</p></div></div>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 10: CONCLUSION ===== -->
+<!-- SLIDE 10: CONCLUSION -->
 <div class="page page-content">
 <div class="page-inner">
-<h2>Por Que GuLIN es la Mejor <span class="accent">Opcion para Previred?</span></h2>
+<h2>&iquest;Por Qu&eacute; GuLIN es la Mejor <span class="accent">Opci&oacute;n para Previred?</span></h2>
 <div class="grid-3">
-<div class="card-center"><div class="num-lg">1</div><div class="lbl-sm"><strong style="color:#00f0ff">Bytebase</strong> es una herramienta especializada en gestion de bases de datos. <strong style="color:#ef4444">No cubre</strong> ciberseguridad, monitoreo, ITAM, continuidad ni cumplimiento regulatorio chileno.</div></div>
+<div class="card-center"><div class="num-lg">1</div><div class="lbl-sm"><strong style="color:#00f0ff">Bytebase</strong> es una herramienta especializada en gesti&oacute;n de bases de datos. <strong style="color:#ef4444">No cubre</strong> ciberseguridad, monitoreo, ITAM, continuidad ni cumplimiento regulatorio chileno.</div></div>
 <div class="card-center"><div class="num-lg">2</div><div class="lbl-sm"><strong style="color:#00f0ff">GuLIN Enterprise</strong> es una <strong style="color:#06d6a0">plataforma unificada</strong> que aborda todas las dimensiones de gobernanza TI que Previred necesita, con soporte local y cumplimiento regulatorio chileno.</div></div>
 <div class="card-center"><div class="num-lg">3</div><div class="lbl-sm"><strong style="color:#00f0ff">Costo total</strong> con Bytebase + herramientas complementarias: <strong style="color:#ef4444">$80-$120/user/mes</strong>. Con GuLIN: <strong style="color:#06d6a0">$35/user/mes</strong>. Ahorro de hasta <strong style="color:#f59e0b">65%</strong>.</div></div>
 </div>
 <div class="highlight-box">
-<h3>Decision Estrategica para Previred</h3>
-<p>Invertir en Bytebase significa comprometerse con <strong style="color:#ef4444">5+ integraciones</strong>, <strong style="color:#ef4444">multiples proveedores</strong> y <strong style="color:#ef4444">brechas de seguridad</strong> no cubiertas. GuLIN ofrece <strong style="color:#00f0ff">una plataforma, un proveedor, una vision unificada</strong> de toda la operacion TI, con cumplimiento regulatorio chileno incluido.</p>
+<h3>&#127919; Decisi&oacute;n Estrat&eacute;gica para Previred</h3>
+<p>Invertir en Bytebase significa comprometerse con <strong style="color:#ef4444">5+ integraciones</strong>, <strong style="color:#ef4444">m&uacute;ltiples proveedores</strong> y <strong style="color:#ef4444">brechas de seguridad</strong> no cubiertas. GuLIN ofrece <strong style="color:#00f0ff">una plataforma, un proveedor, una visi&oacute;n unificada</strong> de toda la operaci&oacute;n TI, con cumplimiento regulatorio chileno incluido.</p>
 </div>
 </div></div>
 
-<!-- ===== SLIDE 11: CONTACTO ===== -->
+<!-- SLIDE 11: CONTACTO -->
 <div class="page page-contact">
 <div class="page-inner">
-<h2>Damos el <span class="accent">Siguiente Paso?</span></h2>
-<p style="max-width:600px;text-align:center">Agende hoy una demostracion tecnica personalizada para Previred. Le mostraremos como GuLIN se integra con su infraestructura actual y cumple con todos los requisitos regulatorios chilenos.</p>
+<h2>&iquest;Damos el <span class="accent">Siguiente Paso?</span></h2>
+<p style="max-width:600px;text-align:center">Agende hoy una demostraci&oacute;n t&eacute;cnica personalizada para Previred. Le mostraremos c&oacute;mo GuLIN se integra con su infraestructura actual y cumple con todos los requisitos regulatorios chilenos.</p>
 <div class="contact-items">
-<div class="contact-item"><span class="ic">✉</span><a href="mailto:previred@gulin.io">previred@gulin.io</a></div>
-<div class="contact-item"><span class="ic">🌐</span><a href="https://www.gulin.io/previred" target="_blank">www.gulin.io/previred</a></div>
-<div class="contact-item"><span class="ic">📞</span><a href="tel:+56223456789">+56 2 2345 6789</a></div>
+<div class="contact-item"><span class="ic">&#9993;</span><a href="mailto:previred@gulin.io">previred@gulin.io</a></div>
+<div class="contact-item"><span class="ic">&#127760;</span><a href="https://www.gulin.io/previred" target="_blank">www.gulin.io/previred</a></div>
+<div class="contact-item"><span class="ic">&#128222;</span><a href="tel:+56223456789">+56 2 2345 6789</a></div>
 </div>
-<p class="footer-text">(c) 2026 GuLIN Enterprise. Documento comparativo confidencial para Previred. Todos los derechos reservados.</p>
+<p class="footer-text">&copy; 2026 GuLIN Enterprise. Documento comparativo confidencial para Previred. Todos los derechos reservados.</p>
 </div></div>
 
 <script>function downloadPDF(){window.print()}</script>
