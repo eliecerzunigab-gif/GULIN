@@ -197,20 +197,7 @@ vt.setStyle(TableStyle([
 ]))
 S.append(vt)
 
-S.append(sp(30))
-
-# Contacto
-ct = Table([[
-    Paragraph("contacto@gulin-ai.com  |  www.gulin-ai.com",
-              ParagraphStyle("ct", fontSize=8, textColor=HexColor(TEXT_MUTED), alignment=TA_CENTER))
-]], colWidths=[CW])
-ct.setStyle(TableStyle([
-    ('BACKGROUND', (0,0), (-1,-1), HexColor(BG_CARD)),
-    ('BOX', (0,0), (-1,-1), 0.5, HexColor(BORDER)),
-    ('TOPPADDING', (0,0), (-1,-1), 6),
-    ('BOTTOMPADDING', (0,0), (-1,-1), 6),
-]))
-S.append(ct)
+S.append(sp(10))
 
 S.append(PageBreak())
 
@@ -420,7 +407,6 @@ cta_t.setStyle(TableStyle([
 S.append(cta_t)
 
 S.append(sp(10))
-S.append(Paragraph("contacto@gulin-ai.com  |  www.gulin-ai.com", sty_footer))
 S.append(Paragraph("© 2026 GuLIN AI. Todos los derechos reservados.", sty_footer))
 
 # ─── Generar ───
